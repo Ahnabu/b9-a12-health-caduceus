@@ -1,0 +1,83 @@
+[
+    {
+        "CampName": "Health Awareness Camp",
+        "Image": "https://i.ibb.co/J2FRhBx/image.png",
+        "CampFees": 20,
+        "DateTime": "2024-06-15T09:00:00",
+        "Location": "Community Center, Downtown",
+        "HealthcareProfessional": "Dr. Emily Clark",
+        "ParticipantCount": 50
+    },
+    {
+        "CampName": "Diabetes Screening Camp",
+        "Image": "https://i.ibb.co/3NCxkHF/image.png",
+        "CampFees": 15,
+        "DateTime": "2024-06-20T10:00:00",
+        "Location": "Health Clinic, Westside",
+        "HealthcareProfessional": "Dr. John Doe",
+        "ParticipantCount": 40
+    },
+    {
+        "CampName": "Cardiac Health Camp",
+        "Image": "https://i.ibb.co/gT6krtG/image.png",
+        "CampFees": 25,
+        "DateTime": "2024-07-05T08:30:00",
+        "Location": "Heart Care Hospital",
+        "HealthcareProfessional": "Dr. Sarah Williams",
+        "ParticipantCount": 60
+    },
+    {
+        "CampName": "Pediatric Health Camp",
+        "Image": "https://i.ibb.co/4KZT2rZ/image.png",
+        "CampFees": 10,
+        "DateTime": "2024-07-10T09:00:00",
+        "Location": "Children's Hospital",
+        "HealthcareProfessional": "Dr. Mike Brown",
+        "ParticipantCount": 30
+    },
+    {
+        "CampName": "Eye Checkup Camp",
+        "Image": "https://i.ibb.co/vmrYywP/image.png",
+        "CampFees": 15,
+        "DateTime": "2024-06-25T11:00:00",
+        "Location": "Vision Center, Eastside",
+        "HealthcareProfessional": "Dr. Lisa Green",
+        "ParticipantCount": 35
+    },
+    {
+        "CampName": "Dental Health Camp",
+        "Image": "https://i.ibb.co/DpzJYT7/image.png",
+        "CampFees": 12,
+        "DateTime": "2024-07-02T10:30:00",
+        "Location": "Dental Care Clinic, Northside",
+        "HealthcareProfessional": "Dr. Robert White",
+        "ParticipantCount": 45
+    },
+    {
+        "CampName": "Women’s Health Camp",
+        "Image": "https://i.ibb.co/FxwSrzh/image.png",
+        "CampFees": 20,
+        "DateTime": "2024-06-18T09:30:00",
+        "Location": "Women's Wellness Center",
+        "HealthcareProfessional": "Dr. Maria Johnson",
+        "ParticipantCount": 55
+    },
+    {
+        "CampName": "Orthopedic Camp",
+        "Image": "https://i.ibb.co/kqpqVmZ/image.png",
+        "CampFees": 18,
+        "DateTime": "2024-07-08T08:00:00",
+        "Location": "Orthopedic Hospital",
+        "HealthcareProfessional": "Dr. William Davis",
+        "ParticipantCount": 40
+    },
+    {
+        "CampName": "Mental Health Camp",
+        "Image": "https://i.ibb.co/wWLVMdF/image.png",
+        "CampFees": 22,
+        "DateTime": "2024-06-30T10:00:00",
+        "Location": "Mental Wellness Center, Southside",
+        "HealthcareProfessional": "Dr. Angela Smith",
+        "ParticipantCount": 50
+    }
+]
