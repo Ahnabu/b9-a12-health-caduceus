@@ -6,7 +6,10 @@ const Layout = () => {
     return (
         <div className="w-full">
             <StickyNavbar></StickyNavbar>
-            <Outlet></Outlet>
+            <div className="">
+               <Outlet></Outlet> 
+            </div>
+            
         </div>
     );
 };
