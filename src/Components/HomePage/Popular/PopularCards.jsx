@@ -16,12 +16,17 @@ const PopularCards = () => {
         
     }, [axiosPublic])
     console.log(cards);
+    
     return (
-        <div className="mx-auto">
+        <div className="mx-auto text-center text-white">
+            <h1 className="text-white">Popular Camps</h1>
+            <p>
+                See real results! Browse our most successful health camps, making a difference one checkup at a time.
+            </p>
 
-               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 mx-auto">
+               <div className="  mt-4 mx-auto">
             {
-                cards.map(card=><PopularCard key={card._id} card={card}></PopularCard>)
+                cards.map((card, index)=><PopularCard key={card._id} card={card} id={index} ></PopularCard>)
             }
         </div>
         </div>

@@ -3,81 +3,90 @@
         "CampName": "Health Awareness Camp",
         "Image": "https://i.ibb.co/J2FRhBx/image.png",
         "CampFees": 20,
-        "DateTime": "2024-06-15T09:00:00",
+        "DateTime": "15/06/2024 at 09:00",
         "Location": "Community Center, Downtown",
         "HealthcareProfessional": "Dr. Emily Clark",
-        "ParticipantCount": 50
+        "ParticipantCount": 50,
+        "Description": "Join us at the Health Awareness Camp to learn about various health topics, including nutrition, exercise, and preventive care. Engage with healthcare professionals and participate in interactive sessions. Our goal is to empower you with the knowledge and tools needed to maintain a healthy lifestyle. The camp features booths, wellness activities, and informative presentations. Bring your family and friends to this community-focused event and take the first step towards a healthier future. All ages are welcome, and refreshments will be provided."
     },
     {
         "CampName": "Diabetes Screening Camp",
         "Image": "https://i.ibb.co/3NCxkHF/image.png",
         "CampFees": 15,
-        "DateTime": "2024-06-20T10:00:00",
+        "DateTime": "20/06/2024 at 10:00",
         "Location": "Health Clinic, Westside",
         "HealthcareProfessional": "Dr. John Doe",
-        "ParticipantCount": 40
+        "ParticipantCount": 40,
+        "Description": "Attend the Diabetes Screening Camp for a comprehensive diabetes assessment. Our team of experts, led by Dr. John Doe, will conduct blood sugar tests and provide personalized advice on diabetes management. Learn about the risk factors, symptoms, and lifestyle changes that can help control and prevent diabetes. This camp is essential for those at risk or currently managing diabetes. Educational materials and dietary tips will be available. Join us for this crucial health event and take control of your health with professional guidance."
     },
     {
         "CampName": "Cardiac Health Camp",
         "Image": "https://i.ibb.co/gT6krtG/image.png",
         "CampFees": 25,
-        "DateTime": "2024-07-05T08:30:00",
+        "DateTime": "05/07/2024 at 08:30",
         "Location": "Heart Care Hospital",
         "HealthcareProfessional": "Dr. Sarah Williams",
-        "ParticipantCount": 60
+        "ParticipantCount": 60,
+        "Description": "The Cardiac Health Camp offers heart health screenings and consultations with top cardiologists, including Dr. Sarah Williams. Participants will receive EKG tests, blood pressure checks, and cholesterol screenings. Learn about heart disease prevention, symptoms, and treatments through interactive sessions and informational booths. This camp is ideal for individuals with a family history of heart disease or those looking to maintain heart health. Take advantage of this opportunity to get expert advice and improve your cardiovascular well-being. Healthy snacks and refreshments will be provided."
     },
     {
         "CampName": "Pediatric Health Camp",
         "Image": "https://i.ibb.co/4KZT2rZ/image.png",
         "CampFees": 10,
-        "DateTime": "2024-07-10T09:00:00",
+        "DateTime": "10/07/2024 at 09:00",
         "Location": "Children's Hospital",
         "HealthcareProfessional": "Dr. Mike Brown",
-        "ParticipantCount": 30
+        "ParticipantCount": 30,
+        "Description": "Bring your children to the Pediatric Health Camp for comprehensive health checkups in a fun and friendly environment. Dr. Mike Brown and his team will conduct physical exams, immunizations, and developmental screenings. The camp includes activities and games to keep children engaged while promoting healthy habits. Parents can receive valuable information on child nutrition, growth milestones, and preventive care. Ensure your child's health and well-being with this community-focused event. Snacks and drinks will be provided for all participants."
     },
     {
         "CampName": "Eye Checkup Camp",
         "Image": "https://i.ibb.co/vmrYywP/image.png",
         "CampFees": 15,
-        "DateTime": "2024-06-25T11:00:00",
+        "DateTime": "25/06/2024 at 11:00",
         "Location": "Vision Center, Eastside",
         "HealthcareProfessional": "Dr. Lisa Green",
-        "ParticipantCount": 35
+        "ParticipantCount": 35,
+        "Description": "Join us at the Eye Checkup Camp for a thorough vision examination by Dr. Lisa Green and her team. Services include vision tests, glaucoma screenings, and consultations on eye health. Participants can also get fitted for glasses if needed. Learn about maintaining good vision, preventing eye strain, and protecting your eyes from common issues. This camp is suitable for all ages, from children to seniors. Ensure your eyes are in top condition with professional advice and care. Complimentary refreshments will be available."
     },
     {
         "CampName": "Dental Health Camp",
         "Image": "https://i.ibb.co/DpzJYT7/image.png",
         "CampFees": 12,
-        "DateTime": "2024-07-02T10:30:00",
+        "DateTime": "02/07/2024 at 10:30",
         "Location": "Dental Care Clinic, Northside",
         "HealthcareProfessional": "Dr. Robert White",
-        "ParticipantCount": 45
+        "ParticipantCount": 45,
+        "Description": "The Dental Health Camp provides comprehensive dental checkups and hygiene education. Led by Dr. Robert White, participants will receive oral exams, cleanings, and fluoride treatments. Learn about proper brushing techniques, cavity prevention, and overall oral health. This camp is designed to help you maintain a healthy smile and prevent dental issues. Suitable for all ages, this event emphasizes the importance of regular dental care. Take advantage of this opportunity for professional dental advice and care. Refreshments will be provided."
     },
     {
         "CampName": "Women’s Health Camp",
         "Image": "https://i.ibb.co/FxwSrzh/image.png",
         "CampFees": 20,
-        "DateTime": "2024-06-18T09:30:00",
+        "DateTime": "18/06/2024 at 09:30",
         "Location": "Women's Wellness Center",
         "HealthcareProfessional": "Dr. Maria Johnson",
-        "ParticipantCount": 55
+        "ParticipantCount": 55,
+        "Description": "Attend the Women’s Health Camp to receive specialized care and advice from healthcare professionals led by Dr. Maria Johnson. Services include gynecological exams, breast cancer screenings, and consultations on reproductive health. Learn about women's health issues and preventive measures through informative sessions and interactive booths. This camp aims to empower women with knowledge and resources to maintain their health. Join us for a day dedicated to women's wellness and receive the care and support you deserve. Refreshments and snacks will be available."
     },
     {
         "CampName": "Orthopedic Camp",
         "Image": "https://i.ibb.co/kqpqVmZ/image.png",
         "CampFees": 18,
-        "DateTime": "2024-07-08T08:00:00",
+        "DateTime": "08/07/2024 at 08:00",
         "Location": "Orthopedic Hospital",
         "HealthcareProfessional": "Dr. William Davis",
-        "ParticipantCount": 40
+        "ParticipantCount": 40,
+        "Description": "The Orthopedic Camp offers expert consultations and assessments for bone and joint health. Dr. William Davis and his team will provide services including X-rays, physical exams, and mobility assessments. Learn about maintaining healthy bones, preventing injuries, and managing orthopedic conditions. This camp is ideal for individuals experiencing joint pain, recovering from injuries, or looking to improve their musculoskeletal health. Take advantage of professional advice and state-of-the-art diagnostic tools. Refreshments will be provided to all participants."
     },
     {
         "CampName": "Mental Health Camp",
         "Image": "https://i.ibb.co/wWLVMdF/image.png",
         "CampFees": 22,
-        "DateTime": "2024-06-30T10:00:00",
+        "DateTime": "30/06/2024 at 10:00",
         "Location": "Mental Wellness Center, Southside",
         "HealthcareProfessional": "Dr. Angela Smith",
-        "ParticipantCount": 50
+        "ParticipantCount": 50,
+        "Description": "Join the Mental Health Camp for a day dedicated to mental wellness. Led by Dr. Angela Smith, the camp offers counseling sessions, stress management workshops, and mindfulness activities. Learn about coping strategies, mental health resources, and self-care practices. This camp is designed to provide support and guidance for individuals dealing with stress, anxiety, or other mental health issues. Participate in group activities and one-on-one consultations to enhance your mental well-being. Complimentary refreshments will be available."
     }
 ]
