@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useAxiosPublic from "../../Utils/useAxiosPublic";
 
 import { CiLocationOn } from "react-icons/ci";
 import { FaUserDoctor } from "react-icons/fa6";
 import { FaUsers } from "react-icons/fa";
+import { DialogDefault } from "./Join";
 
 const Details = () => {
     const {id} = useParams()
@@ -17,7 +18,7 @@ const Details = () => {
      
     }, [axiosPublic, id])
     console.log(card);
-    const { participantCount, healthcareProfessional, location, dateTime, campFees, image, campName, _id, description } = card
+    const { participantCount, healthcareProfessional, location, dateTime, campFees, image, campName,  description } = card
     return (
         <div>
             <section >
@@ -44,7 +45,7 @@ const Details = () => {
                         </div>
                         <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-50"><span className="font-bold">Details: </span>{description}  </p>
                       
-                            <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-600 dark:text-gray-50">Join Now</button>
+                            <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-600 bg-primary text-white dark:text-gray-50"><DialogDefault card={card}> </DialogDefault> </button>
                     
                       
                     </div>
