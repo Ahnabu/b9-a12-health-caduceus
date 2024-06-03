@@ -34,7 +34,7 @@ const PopularCard = ({ card, id }) => {
                     >
                         <img src={image} alt="" className="h-80 md:h-full dark:bg-gray-500 aspect-video group relative overflow-hidden hover:transition duration-300 ease-in-out hover:scale-105 lg:w-1/2" />
 
-                        <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-50">
+                        <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-50 text-start">
                             <div className="md:flex justify-between">
                                 <div>
                                     <div className="md:flex justify-between">
@@ -76,7 +76,7 @@ const PopularCard = ({ card, id }) => {
                             >
                                 {/* {description} */}
                             </p>
-                            <NavLink to={`/card-details/${_id}`}>
+                            <NavLink to={`/details/${_id}`}>
                                 <Button size="lg" className="md:w-1/3 bg-primary border border-primary test-white">View Details
                                 </Button>
                             </NavLink>
