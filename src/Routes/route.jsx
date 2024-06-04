@@ -3,6 +3,7 @@ import Layout from "../Layout/Layout";
 import HomePage from "../Components/HomePage/HomePage";
 import Details from "../Components/Details/Details";
 import Error from "../Pages/Error/Error";
+import AvailableCamp from "../Components/AvailableCamp/AvailableCamp";
 
 export const router = createBrowserRouter([
     {
@@ -13,6 +14,11 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element:<HomePage></HomePage>
+                
+            },
+            {
+                path: '/available-camps',
+                element:<AvailableCamp></AvailableCamp>
                 
             },
             {

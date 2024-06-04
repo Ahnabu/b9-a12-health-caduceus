@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+
 import { useParams } from "react-router-dom";
 import useAxiosPublic from "../../Utils/useAxiosPublic";
 
@@ -6,17 +6,24 @@ import { CiLocationOn } from "react-icons/ci";
 import { FaUserDoctor } from "react-icons/fa6";
 import { FaUsers } from "react-icons/fa";
 import { DialogDefault } from "./Join";
+import { useQuery } from "@tanstack/react-query";
 
 const Details = () => {
     const {id} = useParams()
  
     const axiosPublic = useAxiosPublic()
-    const [card, setCard] = useState([])
-    useEffect(() => {
-        axiosPublic.get(`/details/${id}`)
-        .then((response) => setCard(response.data))
+    
+    
+    const { data: card = [] } = useQuery({
+        queryKey: ['card'],
+        queryFn: async() => {
+            const res = await axiosPublic.get(`/details/${id}`)
+    return res.data;
+}
+    })
+        
      
-    }, [axiosPublic, id])
+   
     console.log(card);
     const { participantCount, healthcareProfessional, location, dateTime, campFees, image, campName,  description } = card
     return (

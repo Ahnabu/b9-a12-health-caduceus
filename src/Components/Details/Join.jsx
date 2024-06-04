@@ -8,7 +8,7 @@ import {
     DialogFooter,
     Typography,
     Input,
-    Select,
+    
 } from "@material-tailwind/react";
 import { useForm} from "react-hook-form"
 export function DialogDefault({card}) {
@@ -16,7 +16,7 @@ export function DialogDefault({card}) {
 
     const handleOpen = () => setOpen(!open);
     console.log(card);
-    const { participantCount, healthcareProfessional, location, dateTime, campFees, image, campName, description } = card
+    // const { participantCount, healthcareProfessional, location, dateTime, campFees, image, campName, description } = card
 
     const { register, handleSubmit } = useForm();
     const handleJoin = ( data) => {

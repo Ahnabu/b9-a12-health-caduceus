@@ -46,10 +46,10 @@ export function StickyNavbar() {
                 className="p-1 font-normal"
             >
 
-                <NavLink to={'/all'} className={({ isActive, isPending }) =>
+                <NavLink to={'/available-camps'} className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? " p-2 underline font-bold text-white" : "text-black"
                 } >
-                    All Food
+                    Available Camps
                 </NavLink>
             </Typography>
             <Typography
