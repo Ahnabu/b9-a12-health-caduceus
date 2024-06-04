@@ -108,11 +108,7 @@ const AuthProvider = ({ children }) => {
             unSubscribe()
         }
     }, [user?.email]);
-    const getLoved = () => {
-        const storedBooks = localStorage.getItem('love-list');
-
-        return (JSON.parse(storedBooks) || [])
-    }
+  
 
 
 
@@ -126,7 +122,7 @@ const AuthProvider = ({ children }) => {
         LogInEmail,
         ProfileUpdate,
         loading,
-        getLoved,
+      
         state,
         setState,
         setUser

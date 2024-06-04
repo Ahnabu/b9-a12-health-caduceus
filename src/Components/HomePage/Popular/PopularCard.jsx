@@ -22,7 +22,7 @@ const PopularCard = ({ card, id }) => {
     }
     return (
         <div>
-            <section className="p-4 lg:p-8 dark:bg-gray-100 dark:text-gray-800">
+            <section className="p-4 lg:p-8 mt-4 dark:bg-gray-100 bg-primary dark:text-gray-800">
                 <Helmet>
                     <title>Health-Caduceus || Home</title>
                 </Helmet>

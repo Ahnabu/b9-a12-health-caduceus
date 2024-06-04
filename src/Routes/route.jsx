@@ -4,6 +4,8 @@ import HomePage from "../Components/HomePage/HomePage";
 import Details from "../Components/Details/Details";
 import Error from "../Pages/Error/Error";
 import AvailableCamp from "../Components/AvailableCamp/AvailableCamp";
+import LogIn from "../UserManagment/Login";
+import Register from "../UserManagment/Register";
 
 export const router = createBrowserRouter([
     {
@@ -19,6 +21,16 @@ export const router = createBrowserRouter([
             {
                 path: '/available-camps',
                 element:<AvailableCamp></AvailableCamp>
+                
+            },
+            {
+                path: '/login',
+                element:<LogIn></LogIn>
+                
+            },
+            {
+                path: '/register',
+                element:<Register></Register>
                 
             },
             {

@@ -33,7 +33,7 @@ const NavbarProfile = () => {
                 </Tooltip>
 
 
-                <Button onClick={handleLogOut} className="ml-4 hidden md:block bg-primary text-secondary">Log Out</Button>
+                <Button onClick={handleLogOut} className="ml-4 hidden md:block text-primary bg-white">Log Out</Button>
             </div>
           
 

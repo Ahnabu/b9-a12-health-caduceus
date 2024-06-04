@@ -52,19 +52,7 @@ export function StickyNavbar() {
                     Available Camps
                 </NavLink>
             </Typography>
-            <Typography
-                as="li"
-                variant="small"
-                color="text-black"
-                className="p-1 font-normal"
-            >
-                <NavLink to={'/gallery'} className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? " p-2 underline font-bold text-white" : "text-black"
-                } >
-                    Gallery
-                </NavLink>
-
-            </Typography>
+        
 
         </ul>
     );
@@ -77,7 +65,7 @@ export function StickyNavbar() {
 
                         className="mr-2 md:mr-4 cursor-pointer py-1.5 md:text-3xl text-base font-bold text-white "
                     >
-                        Health<span className="">Caduceus</span>
+                        Health Caduceus
 
                     </Typography>
 
@@ -88,7 +76,7 @@ export function StickyNavbar() {
 
 
 
-                            <Link to={'/register'}>
+                            <Link to={'/login'}>
                                 <Button
                                     className={`flex items-center text-primary bg-white justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-600 dark:text-gray-50 border border-primary`}
                                 >Join Us</Button>
@@ -107,7 +95,7 @@ export function StickyNavbar() {
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
-                                    className="h-6 w-6 relative -top-3 -left-3"
+                                    className="h-6 w-6 relative "
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
                                     strokeWidth={2}
@@ -121,7 +109,7 @@ export function StickyNavbar() {
                             ) : (
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                            className="h-6 w-6 relative -top-3 -left-3"
+                                            className="h-6 w-6 relative"
                                     fill="none"
                                     stroke="currentColor"
                                     strokeWidth={2}
@@ -145,15 +133,15 @@ export function StickyNavbar() {
                     {navList}
                     <div className="flex items-center gap-x-1">
 
-                        {/* <Link to={'/login'}>
-                            <Button fullWidth variant="text" size="sm" className="  text-primary">
+                        <Link to={'/login'}>
+                            <Button fullWidth  size="sm" className="  text-white bg-primary">
                                 Log In
                             </Button>
-                        </Link> */}
+                        </Link>
 
 
                         <Link to={'/register'}>
-                            <Button fullWidth variant="gradient" type="ghost" size="sm" className=" text-primary">
+                            <Button fullWidth variant="gradient"  size="sm" className=" bg-white text-primary">
                                 Register
                             </Button>
                         </Link>
