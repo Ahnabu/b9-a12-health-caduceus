@@ -8,6 +8,7 @@ import LogIn from "../UserManagment/Login";
 import Register from "../UserManagment/Register";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Components/Dashboard/Dashboard";
+import Profile from "../Components/Dashboard/Profile/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -44,7 +45,14 @@ export const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <PrivateRoute><Dashboard></Dashboard> </PrivateRoute>
+        element: <PrivateRoute><Dashboard></Dashboard> </PrivateRoute>,
+        errorElement: <Error></Error>,
+        children: [
+            {
+                path: 'profile',
+                element:<PrivateRoute><Profile></Profile> </PrivateRoute>
+            }
+        ]
 
     },
 ]);

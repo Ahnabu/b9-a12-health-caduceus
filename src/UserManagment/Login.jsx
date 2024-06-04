@@ -33,6 +33,8 @@ function LogIn() {
                 { withCredentials: true })
            
             setUser(result.user)
+            await axios.get(`${import.meta.env.VITE_API_URL}/users`)
+            .then(res=> setUser(res.data))
             navigate(location?.state || '/', { replace: true })
             Swal.fire({
                 title: 'Success',

@@ -13,11 +13,7 @@ const PopularCards = () => {
             return res.data;
         }
     })
-         
-        
-    
-    console.log(cards);
-    
+
     return (
         <div className="mx-auto text-center text-white">
             <h1 className="text-white">Popular Camps</h1>

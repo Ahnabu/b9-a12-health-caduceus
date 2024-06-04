@@ -71,7 +71,7 @@ console.log(data);
             const result = await EmailSingIn({data})
             console.log(result.user);
             await axios.post(`${import.meta.env.VITE_API_URL}/users`,
-                { email: result?.user?.email },
+                { ...register,role:"User" },
                 { withCredentials: true })
             await axios.post(
                 `${import.meta.env.VITE_API_URL}/jwt`,

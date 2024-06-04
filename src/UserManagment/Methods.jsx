@@ -19,7 +19,7 @@ const Methods = () => {
             const result = await googleSingIn()
             console.log(result.user);
             await axios.post(`${import.meta.env.VITE_API_URL}/users`,
-                { email: result?.user?.email },
+                { email: result?.user?.email , role:"User"},
                 { withCredentials: true })
             await axios.post(
                 `${import.meta.env.VITE_API_URL}/jwt`,
