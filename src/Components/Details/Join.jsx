@@ -127,7 +127,7 @@ export function DialogDefault({card}) {
                             >
                                 <span>Cancel</span>
                             </Button>
-                            <Button variant="gradient" color="green" type="submit" onClick={handleOpen}>
+                            <Button  className="bg-primary" type="submit" onClick={handleOpen}>
                                 <span>Confirm</span>
                             </Button>
                         </DialogFooter>

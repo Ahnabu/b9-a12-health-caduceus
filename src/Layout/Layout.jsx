@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { StickyNavbar } from "../Components/Navbar/Navbar";
+import Footer from "../Pages/Footer/Footer";
 
 
 const Layout = () => {
@@ -9,7 +10,7 @@ const Layout = () => {
             <div className="">
                <Outlet></Outlet> 
             </div>
-            
+            <Footer></Footer>
         </div>
     );
 };

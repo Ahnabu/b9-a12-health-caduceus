@@ -1,20 +1,25 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useAxiosPublic from "../../../Utils/useAxiosPublic";
 import PopularCard from "./PopularCard";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 
 const PopularCards = () => {
     const axiosPublic = useAxiosPublic()
     const [cards, setCards] = useState([])
-    useEffect( () => {
-       
-         axiosPublic.get('/popular')
-            .then(res => {
-                setCards(res.data)
-                console.log(res.data);
-            })
+    const queryClient = useQueryClient()
+   
+        const query = useQuery({
+            queryKey: ['cards'],
+            queryFn: axiosPublic.get('/popular')
+                .then(res => {
+                    setCards(res.data)
+                    console.log(res.data);
+                })
+})
+         
         
-    }, [axiosPublic])
+    
     console.log(cards);
     
     return (
