@@ -27,10 +27,10 @@ function LogIn() {
         try {
             const result = await LogInEmail({data})
             console.log(result?.user);
-            // await axios.post(
-            //     `${import.meta.env.VITE_API_URL}/jwt`,
-            //     { email: result?.user?.email },
-            //     { withCredentials: true })
+            await axios.post(
+                `${import.meta.env.VITE_API_URL}/jwt`,
+                { email: result?.user?.email },
+                { withCredentials: true })
            
             setUser(result.user)
             navigate(location?.state || '/', { replace: true })

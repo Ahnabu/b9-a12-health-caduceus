@@ -46,6 +46,19 @@ export function StickyNavbar() {
                 className="p-1 font-normal"
             >
 
+                <NavLink to={'/dashboard'} className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? " p-2 underline font-bold text-white" : "text-black"
+                } >
+                    Dashboard
+                </NavLink>
+            </Typography>
+            <Typography
+                as="li"
+                variant="small"
+                color="text-black"
+                className="p-1 font-normal"
+            >
+
                 <NavLink to={'/available-camps'} className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? " p-2 underline font-bold text-white" : "text-black"
                 } >

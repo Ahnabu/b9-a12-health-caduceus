@@ -18,19 +18,19 @@ const Methods = () => {
         try {
             const result = await googleSingIn()
             console.log(result.user);
-            // await axios.post(`${import.meta.env.VITE_API_URL}/user`,
-            //     { email: result?.user?.email },
-            //     { withCredentials: true })
-            // await axios.post(
-            //     `${import.meta.env.VITE_API_URL}/jwt`,
-            //     { email: result?.user?.email },
-            //     { withCredentials: true })
-            // await axios.get(`${import.meta.env.VITE_API_URL}/user/${user?.email}`, {
-            //     withCredentials: true,
-            //     params: {
-            //         email: user?.email
-            //     }
-            // })
+            await axios.post(`${import.meta.env.VITE_API_URL}/users`,
+                { email: result?.user?.email },
+                { withCredentials: true })
+            await axios.post(
+                `${import.meta.env.VITE_API_URL}/jwt`,
+                { email: result?.user?.email },
+                { withCredentials: true })
+            await axios.get(`${import.meta.env.VITE_API_URL}/users/${user?.email}`, {
+                withCredentials: true,
+                params: {
+                    email: user?.email
+                }
+            })
             
 
             setUser(result.user)

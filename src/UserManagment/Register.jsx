@@ -70,13 +70,13 @@ console.log(data);
         try {
             const result = await EmailSingIn({data})
             console.log(result.user);
-            // await axios.post(`${import.meta.env.VITE_API_URL}/user`,
-            //     { email: result?.user?.email },
-            //     { withCredentials: true })
-            // await axios.post(
-            //     `${import.meta.env.VITE_API_URL}/jwt`,
-            //     { email: result?.user?.email },
-            //     { withCredentials: true })
+            await axios.post(`${import.meta.env.VITE_API_URL}/users`,
+                { email: result?.user?.email },
+                { withCredentials: true })
+            await axios.post(
+                `${import.meta.env.VITE_API_URL}/jwt`,
+                { email: result?.user?.email },
+                { withCredentials: true })
             
             setUser(result.user)
             Swal.fire({

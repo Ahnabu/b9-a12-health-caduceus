@@ -6,6 +6,8 @@ import Error from "../Pages/Error/Error";
 import AvailableCamp from "../Components/AvailableCamp/AvailableCamp";
 import LogIn from "../UserManagment/Login";
 import Register from "../UserManagment/Register";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Components/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
     {
@@ -39,5 +41,10 @@ export const router = createBrowserRouter([
              
             }
         ]
+    },
+    {
+        path: '/dashboard',
+        element: <PrivateRoute><Dashboard></Dashboard> </PrivateRoute>
+
     },
 ]);
