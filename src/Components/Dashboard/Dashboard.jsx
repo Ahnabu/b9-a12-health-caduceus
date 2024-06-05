@@ -1,11 +1,13 @@
-import useAuth from "../../Utils/useAuth";
+import { Outlet } from "react-router-dom";
+// import useAuth from "../../Utils/useAuth";
 import Sidebar from "./Sidebar"
 
 const Dashboard = () => {
-    const { user } = useAuth()
+    // const { user } = useAuth()
     return (
-        <div>
+        <div className="">
             <Sidebar></Sidebar>
+            <Outlet></Outlet>
         </div>
     );
 };

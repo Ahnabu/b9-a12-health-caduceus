@@ -8,7 +8,9 @@ const LoadingSpinner = ({ smallHeight }) => {
       flex 
       flex-col 
       justify-center 
-      items-center `}
+      items-center
+      text-primary
+      `}
         >
             <ScaleLoader size={100} className="text-primary" />
         </div>

@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Navigate, useLocation } from "react-router";
 import useAuth from "../Utils/useAuth";
+import LoadingSpinner from "../Components/Shared/LoadingSpinner";
 
 
 const PrivateRoute = ({ children }) => {
@@ -8,7 +9,7 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading) {
-        return <progress className="progress w-56"></progress>
+        return <LoadingSpinner></LoadingSpinner>
     }
 
     if (user) {

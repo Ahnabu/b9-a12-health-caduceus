@@ -7,19 +7,20 @@ import { MdHomeWork } from 'react-icons/md'
 import { AiOutlineBars } from 'react-icons/ai'
 import { BsGraphUp } from 'react-icons/bs'
 import { NavLink } from 'react-router-dom'
-import useAuth from '../../../Utils/useAuth'
+
 import { Link } from 'react-router-dom'
-import useRole from '../../../Utils/useRole'
+import useRole from '../../Utils/useRole'
 import MenuItem from './Menu/MenuItem'
-import HostMenu from './Menu/HostMenu'
-import AdminMenu from './Menu/AdminMenu'
-import GuestMenu from './Menu/GuestMenu'
-import ToggleBtn from '../../Shared/Button/ToggleBtn'
+
+
+
+import useAuth from '../../Utils/useAuth'
+import OrganizerMenu from './Menu/OrganizerMenu'
 
 const Sidebar = () => {
     const { logOut } = useAuth()
     const [isActive, setActive] = useState(false)
-    const [toggle, setToggle] = useState(true)
+  
     const [role, isLoading] = useRole()
     console.log(role, isLoading)
     // Sidebar Responsive Handler
@@ -27,9 +28,6 @@ const Sidebar = () => {
         setActive(!isActive)
     }
 
-    const toggleHandler = event => {
-        setToggle(event.target.checked)
-    }
     return (
         <>
             {/* Small Screen Navbar */}
@@ -58,48 +56,38 @@ const Sidebar = () => {
 
             {/* Sidebar */}
             <div
-                className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${isActive && '-translate-x-full'
+                className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-primary bg-opacity-70 text-white w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${isActive && '-translate-x-full'
                     }  md:translate-x-0  transition duration-200 ease-in-out`}
             >
                 <div>
                     <div>
-                        <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-rose-100 mx-auto'>
+                        <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center  mx-auto'>
                             <Link to='/'>
-                                <img
-                                    // className='hidden md:block'
-                                    src='https://i.ibb.co/4ZXzmq5/logo.png'
-                                    alt='logo'
-                                    width='100'
-                                    height='100'
-                                />
+                                <div className='flex gap-1'>
+                                    <img src="/logo.jpeg" alt="" className='w-6 h-6' />
+                                    <h3 className='text-white font-bold text-xl'>Health Caduceus </h3>
+                                    
+                               </div>
                             </Link>
                         </div>
                     </div>
 
                     {/* Nav Items */}
-                    <div className='flex flex-col justify-between flex-1 mt-6'>
+                    <div className='flex flex-col justify-between flex-1 rounded mt-6'>
                         {/* Conditional toggle button here.. */}
-                        {role === 'host' && (
-                            <ToggleBtn toggleHandler={toggleHandler} toggle={toggle} />
-                        )}
-
+                      
                         {/*  Menu Items */}
                         <nav>
                             {/* Statistics */}
                             <MenuItem
                                 label='Statistics'
                                 address='/dashboard'
+                                className="rounded"
                                 icon={BsGraphUp}
                             />
-                            {role === 'guest' && <GuestMenu />}
-                            {role === 'host' ? (
-                                toggle ? (
-                                    <HostMenu />
-                                ) : (
-                                    <GuestMenu />
-                                )
-                            ) : undefined}
-                            {role === 'admin' && <AdminMenu />}
+                            {/* {role === 'User' && <UserMenu />} */}
+                            
+                            {role === 'Organizer' && <OrganizerMenu />}
                         </nav>
                     </div>
                 </div>
@@ -111,12 +99,13 @@ const Sidebar = () => {
                     <MenuItem
                         label='Profile'
                         address='/dashboard/profile'
+                       
                         icon={FcSettings}
                     />
 
                     <button
                         onClick={logOut}
-                        className='flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'
+                        className='flex w-full items-center px-4 py-2 mt-5 bg-primary text-white hover:bg-white  hover:text-primary transition-colors duration-300 transform'
                     >
                         <GrLogout className='w-5 h-5' />
 
