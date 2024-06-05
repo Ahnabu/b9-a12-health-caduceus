@@ -1,21 +1,14 @@
 import { useState } from 'react'
 import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
-import { BsFingerprint, BsFillHouseAddFill } from 'react-icons/bs'
-import { GrUserAdmin } from 'react-icons/gr'
-import { MdHomeWork } from 'react-icons/md'
 import { AiOutlineBars } from 'react-icons/ai'
 import { BsGraphUp } from 'react-icons/bs'
-import { NavLink } from 'react-router-dom'
-
 import { Link } from 'react-router-dom'
 import useRole from '../../Utils/useRole'
 import MenuItem from './Menu/MenuItem'
-
-
-
 import useAuth from '../../Utils/useAuth'
 import OrganizerMenu from './Menu/OrganizerMenu'
+import UserMenu from './Menu/UserMenu'
 
 const Sidebar = () => {
     const { logOut } = useAuth()
@@ -78,14 +71,14 @@ const Sidebar = () => {
                       
                         {/*  Menu Items */}
                         <nav>
-                            {/* Statistics */}
+                            
                             <MenuItem
                                 label='Statistics'
                                 address='/dashboard'
                                 className="rounded"
                                 icon={BsGraphUp}
                             />
-                            {/* {role === 'User' && <UserMenu />} */}
+                            {role === 'User' && <UserMenu />}
                             
                             {role === 'Organizer' && <OrganizerMenu />}
                         </nav>

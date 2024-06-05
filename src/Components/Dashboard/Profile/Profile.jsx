@@ -7,7 +7,7 @@ import useAuth from '../../../Utils/useAuth'
 
 const Profile = () => {
     const { user, loading } = useAuth() || {}
-    const [role, isLoading] = useRole()
+    const [ isLoading] = useRole()
 
     console.log(user)
     if (isLoading || loading) return <LoadingSpinner />
