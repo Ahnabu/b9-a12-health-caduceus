@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Swal from "sweetalert2";
 import { auth } from "../../Firebase/firebase.config";
-import axios from "axios";
+// import axios from "axios";
 
 export const AuthContext = createContext(null)
 
@@ -73,8 +73,8 @@ const AuthProvider = ({ children }) => {
         signOut(auth)
             .then(async () => {
 
-                const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/logout`, { withCredentials: true })
-                console.log(data);
+                // const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/logout`, { withCredentials: true })
+                
                 setUser(null)
                 Swal.fire({
                     title: 'Success',

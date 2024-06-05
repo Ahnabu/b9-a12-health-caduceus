@@ -1,14 +1,25 @@
 import MenuItem from "./MenuItem";
-import { BsGraphUp } from 'react-icons/bs'
-
+import { MdAnalytics } from "react-icons/md";
+import { LiaCampgroundSolid } from "react-icons/lia";
+import { FaHistory } from "react-icons/fa";
 const UserMenu = () => {
     return (
         <div>
             <MenuItem
-                label='Statistics'
+                label='Analytics'
                 address='/dashboard'
                 className="rounded"
-                icon={BsGraphUp}
+                icon={MdAnalytics}
+            />
+            <MenuItem
+                icon={LiaCampgroundSolid}
+                label='Registered Camps'
+                address='registered-camps'
+            />
+            <MenuItem
+                icon={FaHistory}
+                label='Payment History'
+                address='payment-history'
             />
         </div>
     );

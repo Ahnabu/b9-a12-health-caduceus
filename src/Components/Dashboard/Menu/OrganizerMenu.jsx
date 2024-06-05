@@ -8,8 +8,8 @@ const OrganizerMenu = () => {
         <>
             <MenuItem icon={FaUserCog} label='Manage Users' address='manage-users' />
             <MenuItem icon={MdOutlineAddBusiness} label='Add A Camp' address='add-camp' />
-            <MenuItem icon={LiaCampgroundSolid} label='Manage A Camp' address='manage-camp' />
-            <MenuItem icon={MdSettingsInputComposite} label='Manage Registered Camp' address='registered-camp' />
+            <MenuItem icon={LiaCampgroundSolid} label='Manage A Camp' address='manage-camps' />
+            <MenuItem icon={MdSettingsInputComposite} label='Manage Registered Camp' address='manage-registered-camps' />
         </>
     )
 }

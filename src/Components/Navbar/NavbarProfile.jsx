@@ -8,7 +8,7 @@ import {
 
 } from "@material-tailwind/react";
 
-import { FaCircleUser } from "react-icons/fa6";
+import { FaRegCircleUser } from "react-icons/fa6";
 
 import { Link } from "react-router-dom";
 import useAuth from "../../Utils/useAuth";
@@ -25,9 +25,9 @@ const NavbarProfile = () => {
         <div className=" relative items-center ">
             <div className="flex justify-end items-center">
                 <Tooltip content={`${user.displayName}`}>
-                    <Button onClick={() => setIsOpen(!isOpen)} className={`w-12 h-12 rounded-full bg-secondary border border-secondary dark:bg-gray-500 p-1 `}>
+                    <Button onClick={() => setIsOpen(!isOpen)} className={`w-12 h-12 rounded-full bg-primary border border-primary dark:bg-gray-500 p-1 `}>
 
-                        {user?.photoURL ? <div className="w-12 h-12 rounded-full bg-cover -mt-[5px] -ml-[5px] " style={{ backgroundImage: `url(${user.photoURL})` }} ></div> : <FaCircleUser className="text-5xl -mt-[5.5px] -ml-[5px]" />}
+                        {user?.photoURL ? <div className="w-12 h-12 rounded-full bg-cover -mt-[5px] -ml-[5px] " style={{ backgroundImage: `url(${user.photoURL})` }} ></div> : <FaRegCircleUser className="text-5xl -mt-[5.5px] -ml-[5px]" />}
 
                     </Button>
                 </Tooltip>
@@ -43,7 +43,7 @@ const NavbarProfile = () => {
                 className="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden origin-top-right bg-white rounded-md shadow-xl dark:bg-gray-800 drop"
             >
                 <a href="#" className="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                    {user?.photoURL ? <div className="w-12 h-12 rounded-full bg-cover -mt-[5px] -ml-[5px] " style={{ backgroundImage: `url(${user.photoURL})` }} ></div> : <FaCircleUser className="text-5xl -mt-[5.5px] -ml-[5px]" />}
+                    {user?.photoURL ? <div className="w-12 h-12 rounded-full bg-cover -mt-[5px] -ml-[5px] " style={{ backgroundImage: `url(${user.photoURL})` }} ></div> : <FaRegCircleUser className="text-5xl -mt-[5.5px] -ml-[5px]" />}
                     <div className="mx-1">
                         <h1 className="text-sm font-semibold text-gray-700 dark:text-gray-200">{user.displayName} </h1>
                         <p className="text-sm text-gray-500 dark:text-gray-400">{user.email} </p>

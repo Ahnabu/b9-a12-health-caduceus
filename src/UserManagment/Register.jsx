@@ -34,12 +34,9 @@ function Register() {
 
     const { register, handleSubmit } = useForm();
 
-    const handleRegistration = async( e,data) => {
-        
-
-        
-        const password = e.target.get('password');
-       
+    const handleRegistration = async data => {
+        console.log(data);
+       const password = data.password
         const MIN_LENGTH = 6;
 
         // Error messages
@@ -66,12 +63,15 @@ function Register() {
         }
         setError('')
 
-console.log(data);
+console.log(password);
         try {
-            const result = await EmailSingIn({data})
+            console.log(data);
+            const email = data?.email
+
+            const result = await EmailSingIn(data?.email,data?.password)
             console.log(result.user);
             await axios.post(`${import.meta.env.VITE_API_URL}/users`,
-                { ...register,role:"User" },
+                {  email,role:"User" },
                 { withCredentials: true })
             await axios.post(
                 `${import.meta.env.VITE_API_URL}/jwt`,
@@ -163,12 +163,14 @@ console.log(data);
                                 type={`${see ? 'text' : 'password'}`}
                                 size="lg"
                                 placeholder="********"
+                                name="password"
                                 className=" !border-t-white-200 bg-white  focus:!border-t-gray-900"
                                 labelProps={{
                                     className: "before:content-none after:content-none",
                                 }}
                                 {...register("password")}
                                 required
+                                
                             >
 
                             </Input>

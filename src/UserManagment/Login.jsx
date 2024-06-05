@@ -70,13 +70,13 @@ function LogIn() {
                         <label htmlFor="username" className="block font-bold  dark:text-gray-600">Email</label>
                         <input type="text" name="email" id="email"
                             {...register("email")}
-                            placeholder="your@email.com" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+                            placeholder="your@email.com" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600 text-black" />
                     </div>
                     <div className="space-y-1 text-sm">
                         <label htmlFor="password" className="block dark:text-gray-600 font-bold ">Password</label>
                         <input type={`${see ? 'text' : 'password'}`}
                             {...register("password")}
-                            name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+                            name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 text-black dark:text-gray-800 focus:dark:border-violet-600" />
                         <div className="flex justify-end text-xs dark:text-gray-600">
 
                             <span onClick={() => { setSee(!see) }} className={' relative -top-7  right-3 md:right-6'}>

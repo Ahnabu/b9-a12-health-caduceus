@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import { GrLogout } from 'react-icons/gr'
-import { FcSettings } from 'react-icons/fc'
+import { CgProfile } from "react-icons/cg";
 import { AiOutlineBars } from 'react-icons/ai'
-import { BsGraphUp } from 'react-icons/bs'
+
 import { Link } from 'react-router-dom'
 import useRole from '../../Utils/useRole'
 import MenuItem from './Menu/MenuItem'
 import useAuth from '../../Utils/useAuth'
 import OrganizerMenu from './Menu/OrganizerMenu'
 import UserMenu from './Menu/UserMenu'
-
+import { IoMdHome } from "react-icons/io";
 const Sidebar = () => {
     const { logOut } = useAuth()
     const [isActive, setActive] = useState(false)
@@ -73,10 +73,10 @@ const Sidebar = () => {
                         <nav>
                             
                             <MenuItem
-                                label='Statistics'
-                                address='/dashboard'
+                                label='Home'
+                                address='/'
                                 className="rounded"
-                                icon={BsGraphUp}
+                                icon={IoMdHome}
                             />
                             {role === 'User' && <UserMenu />}
                             
@@ -93,7 +93,7 @@ const Sidebar = () => {
                         label='Profile'
                         address='/dashboard/profile'
                        
-                        icon={FcSettings}
+                        icon={CgProfile}
                     />
 
                     <button
