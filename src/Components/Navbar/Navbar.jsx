@@ -30,7 +30,7 @@ export function StickyNavbar() {
             <Typography
                 as="li"
                 variant="small"
-                color="text-black"
+                color="black"
                 className="p-1 font-normal"
             >
                 <NavLink to={'/'} className={({ isActive, isPending }) =>
@@ -42,7 +42,7 @@ export function StickyNavbar() {
             <Typography
                 as="li"
                 variant="small"
-                color="text-black"
+                color="black"
                 className="p-1 font-normal"
             >
 
@@ -55,7 +55,7 @@ export function StickyNavbar() {
             <Typography
                 as="li"
                 variant="small"
-                color="text-black"
+                color="black"
                 className="p-1 font-normal"
             >
 

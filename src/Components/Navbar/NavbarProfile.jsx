@@ -12,15 +12,14 @@ import { FaRegCircleUser } from "react-icons/fa6";
 
 import { Link } from "react-router-dom";
 import useAuth from "../../Utils/useAuth";
-
-
 const NavbarProfile = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { LogOut, user } = useAuth();
+    const { LogOut, user,loading } = useAuth();
     const handleLogOut = () => {
         LogOut();
       
     };
+    if(!loading)
     return (
         <div className=" relative items-center ">
             <div className="flex justify-end items-center">

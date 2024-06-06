@@ -10,9 +10,10 @@ const LoadingSpinner = ({ smallHeight }) => {
       justify-center 
       items-center
       text-primary
+     
       `}
         >
-            <ScaleLoader size={100} className="text-primary" />
+            <ScaleLoader size={100} className="text-primary" color='rgb(70 195 235 / var(--tw-text-opacity))' />
         </div>
     )
 }

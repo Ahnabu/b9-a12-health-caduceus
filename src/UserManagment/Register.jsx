@@ -7,33 +7,26 @@ import {
     Button,
     Typography,
 } from "@material-tailwind/react";
-
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useState } from "react";
-
-
 import { FaEyeSlash } from "react-icons/fa6";
 import { FaEye } from "react-icons/fa";
 import { useLocation, useNavigate } from 'react-router-dom';
-
-
-
 import Methods from "./Methods";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import useAuth from "../Utils/useAuth";
 import Swal from "sweetalert2";
+import { updateProfile } from "firebase/auth";
+import { auth } from "../../Firebase/firebase.config";
 function Register() {
-    const { EmailSingIn, setUser } = useAuth()
+    const { EmailSingIn, setUser, setLoading } = useAuth()
     const navigate = useNavigate();
     const location = useLocation();
     const [error, setError] = useState('')
     const [see, setSee] = useState(false);
-
-
     const { register, handleSubmit } = useForm();
-
     const handleRegistration = async data => {
         console.log(data);
        const password = data.password
@@ -65,11 +58,31 @@ function Register() {
 
 console.log(password);
         try {
-            console.log(data);
+            
             const email = data?.email
 
-            const result = await EmailSingIn(data?.email,data?.password)
+            const result = await EmailSingIn(data?.email, data?.password)
+               
+                    // User creation successful
             console.log(result.user);
+            //update user
+            await updateProfile(auth.currentUser, {
+                displayName: `${data?.displayName}`, photoURL: `${data?.photoURL}`
+            })
+                .then(result => {
+                    if (result.user) {
+                        navigate('/')
+                        setLoading(false)
+                    }
+                })
+                .catch((error) => {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: error.message,
+                        icon: 'error',
+                        timer: 1500
+                    })
+                });
             await axios.post(`${import.meta.env.VITE_API_URL}/users`,
                 {  email,role:"User" },
                 { withCredentials: true })
@@ -127,7 +140,7 @@ console.log(password);
                                 className: "before:content-none after:content-none",
                             }}
 
-                            {...register("name")}
+                            {...register("displayName")}
                         />
                         <Typography variant="h6" color="white" className="-mb-3">
                             Your PhotoURL

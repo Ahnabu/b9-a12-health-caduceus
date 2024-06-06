@@ -9,6 +9,9 @@ import Register from "../UserManagment/Register";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Components/Dashboard/Dashboard";
 import Profile from "../Components/Dashboard/Profile/Profile";
+import UpdateUserModal from "../Components/Dashboard/Profile/UpdateProfile/UpdateProfile";
+import OrganizerRoute from "./OrganizerRoute";
+import AddCamp from "../Components/Dashboard/AddCamp/AddCamp";
 
 export const router = createBrowserRouter([
     {
@@ -49,9 +52,18 @@ export const router = createBrowserRouter([
         errorElement: <Error></Error>,
         children: [
             {
-                path: 'profile',
+                index:true ,
+                
                 element:<PrivateRoute><Profile></Profile> </PrivateRoute>
-            }
+            },
+            {
+                path: 'update-profile',
+                element:<PrivateRoute><UpdateUserModal></UpdateUserModal></PrivateRoute>
+            },
+            {
+                path: 'add-camp',
+                element:<OrganizerRoute><AddCamp></AddCamp></OrganizerRoute>
+            },
         ]
 
     },

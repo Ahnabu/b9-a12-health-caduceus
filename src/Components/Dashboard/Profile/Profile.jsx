@@ -5,16 +5,28 @@ import LoadingSpinner from '../../../Components/Shared/LoadingSpinner'
 import useRole from '../../../Utils/useRole'
 import useAuth from '../../../Utils/useAuth'
 
+import {
+    Dialog,
+    DialogBody,
+} from "@material-tailwind/react";
+
+import UpdateProfile from './UpdateProfile/UpdateProfile';
+import { useState } from 'react';
+
 const Profile = () => {
     const { user, loading } = useAuth() || {}
-    const [ isLoading] = useRole()
-
+    const [role, isLoading] = useRole()
+    const [open, setOpen] = useState(false);
+    console.log(role,isLoading);
     console.log(user)
     if (isLoading || loading) return <LoadingSpinner />
+    
+
+    const handleOpen = () => setOpen(!open);
     return (
         <div className='flex justify-center items-center h-screen'>
             <Helmet>
-                <title>Profile</title>
+                <title>Health Caduceus Profile</title>
             </Helmet>
             <div className='bg-white shadow-lg rounded-2xl w-3/5'>
                 <img
@@ -32,7 +44,7 @@ const Profile = () => {
                     </a>
 
                     
-                    <p className='mt-2 text-xl font-medium text-gray-800 '>
+                    <p className='mt-2 text-xl font-medium text-wrap text-gray-800 '>
                         User Id: {user?.uid}
                     </p>
                     <div className='w-full p-2 mt-4 rounded-lg'>
@@ -44,19 +56,28 @@ const Profile = () => {
                                 </span>
                             </p>
                             <p className='flex flex-col'>
+                                Role
+                                <span className='font-bold text-black '>{role}</span>
+                            </p>
+                            <p className='flex flex-col'>
                                 Email
                                 <span className='font-bold text-black '>{user?.email}</span>
                             </p>
 
-                            <div>
-                                <button className='bg-primary px-10 py-1 rounded-lg text-white cursor-pointer  block mb-1'>
-                                    Update Profile
-                                </button>
-                                <button className='bg-primary px-7 py-1 rounded-lg text-white cursor-pointer '>
-                                    Change Password
-                                </button>
-                            </div>
                         </div>
+                            <div className='mx-auto mt-4'>
+                                
+                            <button className='bg-primary px-10 py-1 rounded-lg text-white cursor-pointer  block mb-1 mx-auto' onClick={handleOpen} >
+                                    Update Profile
+                                    </button>
+                        </div>
+                        <Dialog open={open} handler={handleOpen} className='rounded-lg'>
+                            
+                            <DialogBody className='bg-primary rounded-lg'>
+                               <UpdateProfile></UpdateProfile>
+                            </DialogBody>
+                           
+                        </Dialog>
                     </div>
                 </div>
             </div>

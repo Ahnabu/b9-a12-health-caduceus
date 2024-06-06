@@ -4,7 +4,6 @@
 import { createContext, useEffect, useState } from "react";
 
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-import { useNavigate } from 'react-router-dom';
 
 
 import Swal from "sweetalert2";
@@ -50,21 +49,29 @@ const AuthProvider = ({ children }) => {
         }
     }
     const ProfileUpdate = (name, photoURL) => {
-        const navigate = useNavigate();
+        
+        setLoading(true);
         return updateProfile(auth.currentUser, {
-            displayName: `${name}`, photoURL: `${photoURL}`
+            displayName: `${name || user?.displayName}`, photoURL: `${photoURL|| user?.photoURL}`
         })
-            .then(result => {
-                if (result.user) {
-                    navigate('/')
-                }
+            .then(()=> {
+                    setLoading(false)
+                   
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "You updated your profile!",
+                        icon: "success"
+                    });
+               
             })
             .catch((error) => {
+                setLoading(false);
+                console.log(error);
                 Swal.fire({
                     title: 'Error!',
                     text: error.message,
                     icon: 'error',
-                    timer: 1500
+                    timer: 5000
                 })
             });
     }

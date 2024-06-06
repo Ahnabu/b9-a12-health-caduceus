@@ -7,7 +7,11 @@ const Dashboard = () => {
     return (
         <div className="">
             <Sidebar></Sidebar>
-            <Outlet></Outlet>
+            <div className="mt-8 lg:ml-64">
+               
+                 <Outlet></Outlet>
+            </div>
+           
         </div>
     );
 };
