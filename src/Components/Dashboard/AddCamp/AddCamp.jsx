@@ -20,6 +20,7 @@ import { Helmet } from "react-helmet";
 import useAuth from "../../../Utils/useAuth";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../Utils/useAxiosSecure";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -27,7 +28,8 @@ const AddCamp = () => {
     const {  setState, state } = useAuth()
     // const { participantCount, healthcareProfessional, location, dateTime, campFees, image, campName, description } = card
     const { register, handleSubmit } = useForm();
-    const axiosSecure = useAxiosSecure()
+    const axiosSecure = useAxiosSecure();
+    const navigate = useNavigate()
     const handleAdd = async data => {
 
         console.log(data);
@@ -44,6 +46,7 @@ const AddCamp = () => {
                             icon: 'success',
                             confirmButtonText: 'Cool'
                         })
+                        navigate('/dashboard')
                         setState(!state)
                     }
 

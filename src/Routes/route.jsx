@@ -12,6 +12,7 @@ import Profile from "../Components/Dashboard/Profile/Profile";
 import UpdateUserModal from "../Components/Dashboard/Profile/UpdateProfile/UpdateProfile";
 import OrganizerRoute from "./OrganizerRoute";
 import AddCamp from "../Components/Dashboard/AddCamp/AddCamp";
+import ManageCamps from "../Components/Dashboard/ManageCamp/ManageCamps";
 
 export const router = createBrowserRouter([
     {
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
             {
                 path: 'add-camp',
                 element:<OrganizerRoute><AddCamp></AddCamp></OrganizerRoute>
+            },
+            {
+                path: 'manage-camps',
+                element:<OrganizerRoute><ManageCamps></ManageCamps></OrganizerRoute>
             },
         ]
 
