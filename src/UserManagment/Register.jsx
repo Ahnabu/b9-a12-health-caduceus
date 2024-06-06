@@ -26,7 +26,9 @@ function Register() {
     const location = useLocation();
     const [error, setError] = useState('')
     const [see, setSee] = useState(false);
+
     const { register, handleSubmit } = useForm();
+
     const handleRegistration = async data => {
         console.log(data);
        const password = data.password
@@ -86,10 +88,7 @@ console.log(password);
             await axios.post(`${import.meta.env.VITE_API_URL}/users`,
                 {  email,role:"User" },
                 { withCredentials: true })
-            await axios.post(
-                `${import.meta.env.VITE_API_URL}/jwt`,
-                { email: result?.user?.email },
-                { withCredentials: true })
+          
             
             setUser(result.user)
             Swal.fire({

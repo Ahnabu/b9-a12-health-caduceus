@@ -21,10 +21,7 @@ const Methods = () => {
             await axios.post(`${import.meta.env.VITE_API_URL}/users`,
                 { email: result?.user?.email , role:"User"},
                 { withCredentials: true })
-            await axios.post(
-                `${import.meta.env.VITE_API_URL}/jwt`,
-                { email: result?.user?.email },
-                { withCredentials: true })
+           
             await axios.get(`${import.meta.env.VITE_API_URL}/users/${user?.email}`, {
                 withCredentials: true,
                 params: {

@@ -8,6 +8,7 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 
 import Swal from "sweetalert2";
 import { auth } from "../../Firebase/firebase.config";
+import useAxiosPublic from "../Utils/useAxiosPublic";
 // import axios from "axios";
 
 export const AuthContext = createContext(null)
@@ -19,6 +20,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [state, setState] = useState(true)
+    const axiosPublic = useAxiosPublic()
     const EmailSingIn = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
@@ -106,7 +108,20 @@ const AuthProvider = ({ children }) => {
             console.log('on auth state changed', currentUser);
             // get token form server using email
             setUser(currentUser);
-
+            if (currentUser) {
+                 const userInfo = { email: currentUser.email }
+            axiosPublic.post('/jwt', userInfo)
+                .then(res =>{
+                    if (res.data.token) {
+                    localStorage.setItem('access-token', res.data.token)
+                }
+            })
+            
+            }
+            else {
+                localStorage.removeItem('access-token')
+            }
+           
             setLoading(false);
 
 
