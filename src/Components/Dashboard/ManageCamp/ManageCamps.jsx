@@ -7,23 +7,57 @@ import { MdDelete } from "react-icons/md";
 import { Button } from '@material-tailwind/react';
 import Swal from 'sweetalert2';
 import useAuth from '../../../Utils/useAuth';
+
+import { useEffect, useState } from 'react';
+
+import { GrFormPrevious } from "react-icons/gr";
+import { GrFormNext } from "react-icons/gr";
+import '../../Shared/style.css'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 const ManageCamps = () => {
+    const { state, setState } = useAuth()
+    const [count, setCount] = useState(8)
+    const [currentPage, setCurrentPage] = useState(1);
+    const[camps,setCamps]=useState([])
     const axiosSecure = useAxiosSecure()
-    const {state, setState}= useAuth()
+    useEffect(() => {
+        axios.get(`${import.meta.env.VITE_API_URL}/camp-count`)
+            .then(data => {
+                setCount(data.data.count)
+            }).catch(error => console.log(error))
+    }, [currentPage])
+    const numbersOfPage = Math.ceil(count / 8)
+
+    useEffect(() => {
+        axiosSecure.get(`camps?currentPage=${currentPage - 1}`)
+            .then(data => {
+                
+                setCamps(data.data)
+                setState(!state)
+
+            })
+    }, [ axiosSecure, currentPage])
+
+    const pages = []
+    for (let i = 0; i < numbersOfPage; i++) {
+        pages.push(i)
+    }
+    // const pages = [...Array(numbersOfPage).keys()]
+
     //   Fetch camps Data
     const {
-        data: camps = [],
         isLoading,
         refetch,
     } = useQuery({
-        queryKey: ['camps'],
+        queryKey: [],
         queryFn: async () => {
             const { data } = await axiosSecure(`/camps`)
+            setCamps(data)
             return data
         },
     })
 
-    console.log(camps)
     const handleDelete = (id) => {
         
         console.log(id);
@@ -32,7 +66,7 @@ const ManageCamps = () => {
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
+            confirmButtonColor: 'rgb(70 195 235 / var(--tw-bg-opacity))',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
@@ -49,7 +83,7 @@ const ManageCamps = () => {
                                 'Camp has been deleted.',
                                 'success'
                             )
-                            refetch()
+                            
                             setState(!state);
                         }
                     })
@@ -58,6 +92,22 @@ const ManageCamps = () => {
         })
         
     }
+
+
+    const handlePrev = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1)
+            refetch()
+        }
+    }
+    const handleNext = () => {
+        if (currentPage < numbersOfPage) {
+            setCurrentPage(currentPage + 1)
+            refetch()
+        }
+    }
+
+    
     if (isLoading) return <LoadingSpinner />
     return (
         <>
@@ -118,9 +168,13 @@ const ManageCamps = () => {
                                             <td className='px-5 py-3'>{camp.healthcareProfessional}</td>
                                             <td className='px-5 py-3'>{camp.location}</td>
                                             <td className='px-5 py-3'>
-                                                <Button variant='outlined' className='bg-primary text-secondary text-xl border-secondary'>
+                                               
+                                                <Link to={`update/${camp._id}`}>
+                                                    <Button variant='outlined' className='bg-primary text-secondary text-xl border-secondary'>
                                                     <GrDocumentUpdate></GrDocumentUpdate>
                                                 </Button>
+                                                </Link>
+                                               
                                                 </td>
                                             <td className='px-5 py-3 '>
                                                 <Button variant='outlined' className='bg-primary text-xl text-secondary border-secondary'
@@ -135,6 +189,24 @@ const ManageCamps = () => {
                             </table>
                         </div>
                     </div>
+                </div>
+                <div>
+                    <div className="flex justify-center space-x-1 px-2 dark:text-gray-800 pagination">
+                        <button title="previous" type="button" className="w-8 h-8 py-0 px-2 border rounded-md shadow-md dark:bg-gray-50 dark:border-gray-100 bg-primary" onClick={handlePrev}>
+                            <GrFormPrevious className='text-2xl text-white'></GrFormPrevious>
+                        </button>
+                        {
+                            pages.map(page => <button key={page} onClick={() => { setCurrentPage(page + 1),refetch() }} type="button" title={`Page ${page + 1}`}
+                                className={currentPage === page + 1 && 'selected'}
+                            // className='selected'
+                            >{page + 1} </button>)
+                        }
+
+                        <button title="next" type="button" onClick={handleNext} className="px-2 text-center mx-auto w-8 h-8 py-0 border rounded-md shadow-md dark:bg-gray-50 dark:border-gray-100 bg-primary">
+                            <GrFormNext className='text-2xl text-white'></GrFormNext>
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </>

@@ -13,6 +13,7 @@ import UpdateUserModal from "../Components/Dashboard/Profile/UpdateProfile/Updat
 import OrganizerRoute from "./OrganizerRoute";
 import AddCamp from "../Components/Dashboard/AddCamp/AddCamp";
 import ManageCamps from "../Components/Dashboard/ManageCamp/ManageCamps";
+import UpdateCamp from "../Components/Dashboard/UpdateCamp/UpdateCamp";
 
 export const router = createBrowserRouter([
     {
@@ -44,13 +45,15 @@ export const router = createBrowserRouter([
                 path: '/details/:id',
                 element: <Details></Details>,
              
-            }
+            },
+            
         ]
     },
     {
         path: '/dashboard',
         element: <PrivateRoute><Dashboard></Dashboard> </PrivateRoute>,
         errorElement: <Error></Error>,
+        
         children: [
             {
                 index:true ,
@@ -69,6 +72,11 @@ export const router = createBrowserRouter([
                 path: 'manage-camps',
                 element:<OrganizerRoute><ManageCamps></ManageCamps></OrganizerRoute>
             },
+            {
+                path: 'manage-camps/update/:id',
+                element: <OrganizerRoute><UpdateCamp></UpdateCamp></OrganizerRoute>
+            },
+            
         ]
 
     },
