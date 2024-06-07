@@ -1,3 +1,4 @@
+
 [
     {
         "campName": "Health Awareness Camp",
@@ -7,19 +8,7 @@
         "location": "Community Center, Downtown",
         "healthcareProfessional": "Dr. Emily Clark",
         "participantCount": 50,
-        "description": "Join us at the Health Awareness Camp to learn about various health topics, including nutrition, exercise, and preventive care. Engage with healthcare professionals and participate in interactive sessions. Our goal is to empower you with the knowledge and tools needed to maintain a healthy lifestyle. The camp features booths, wellness activities, and informative presentations. Bring your family and friends to this community-focused event and take the first step towards a healthier future. All ages are welcome, and refreshments will be provided.",
-        "participants": [
-            {
-                "participant_name": "Alice Johnson",
-                "payment_status": "Paid",
-                "payment_confirmation_status": "Confirmed"
-            },
-            {
-                "participant_name": "Bob Smith",
-                "payment_status": "Pending",
-                "payment_confirmation_status": "Unconfirmed"
-            }
-        ]
+        "description": "Join us at the Health Awareness Camp to learn about various health topics, including nutrition, exercise, and preventive care. Engage with healthcare professionals and participate in interactive sessions. Our goal is to empower you with the knowledge and tools needed to maintain a healthy lifestyle. The camp features booths, wellness activities, and informative presentations. Bring your family and friends to this community-focused event and take the first step towards a healthier future. All ages are welcome, and refreshments will be provided."
     },
     {
         "campName": "Diabetes Screening Camp",
@@ -29,19 +18,7 @@
         "location": "Health Clinic, Westside",
         "healthcareProfessional": "Dr. John Doe",
         "participantCount": 40,
-        "description": "Attend the Diabetes Screening Camp for a comprehensive diabetes assessment. Our team of experts, led by Dr. John Doe, will conduct blood sugar tests and provide personalized advice on diabetes management. Learn about the risk factors, symptoms, and lifestyle changes that can help control and prevent diabetes. This camp is essential for those at risk or currently managing diabetes. Educational materials and dietary tips will be available. Join us for this crucial health event and take control of your health with professional guidance.",
-        "participants": [
-            {
-                "participant_name": "Charlie Davis",
-                "payment_status": "Paid",
-                "payment_confirmation_status": "Confirmed"
-            },
-            {
-                "participant_name": "Diana Miller",
-                "payment_status": "Pending",
-                "payment_confirmation_status": "Unconfirmed"
-            }
-        ]
+        "description": "Attend the Diabetes Screening Camp for a comprehensive diabetes assessment. Our team of experts, led by Dr. John Doe, will conduct blood sugar tests and provide personalized advice on diabetes management. Learn about the risk factors, symptoms, and lifestyle changes that can help control and prevent diabetes. This camp is essential for those at risk or currently managing diabetes. Educational materials and dietary tips will be available. Join us for this crucial health event and take control of your health with professional guidance."
     },
     {
         "campName": "Cardiac Health Camp",
@@ -51,19 +28,7 @@
         "location": "Heart Care Hospital",
         "healthcareProfessional": "Dr. Sarah Williams",
         "participantCount": 60,
-        "description": "The Cardiac Health Camp offers heart health screenings and consultations with top cardiologists, including Dr. Sarah Williams. Participants will receive EKG tests, blood pressure checks, and cholesterol screenings. Learn about heart disease prevention, symptoms, and treatments through interactive sessions and informational booths. This camp is ideal for individuals with a family history of heart disease or those looking to maintain heart health. Take advantage of this opportunity to get expert advice and improve your cardiovascular well-being. Healthy snacks and refreshments will be provided.",
-        "participants": [
-            {
-                "participant_name": "Edward Wilson",
-                "payment_status": "Paid",
-                "payment_confirmation_status": "Confirmed"
-            },
-            {
-                "participant_name": "Fiona Lee",
-                "payment_status": "Pending",
-                "payment_confirmation_status": "Unconfirmed"
-            }
-        ]
+        "description": "The Cardiac Health Camp offers heart health screenings and consultations with top cardiologists, including Dr. Sarah Williams. Participants will receive EKG tests, blood pressure checks, and cholesterol screenings. Learn about heart disease prevention, symptoms, and treatments through interactive sessions and informational booths. This camp is ideal for individuals with a family history of heart disease or those looking to maintain heart health. Take advantage of this opportunity to get expert advice and improve your cardiovascular well-being. Healthy snacks and refreshments will be provided."
     },
     {
         "campName": "Pediatric Health Camp",
@@ -73,19 +38,7 @@
         "location": "Children's Hospital",
         "healthcareProfessional": "Dr. Mike Brown",
         "participantCount": 30,
-        "description": "Bring your children to the Pediatric Health Camp for comprehensive health checkups in a fun and friendly environment. Dr. Mike Brown and his team will conduct physical exams, immunizations, and developmental screenings. The camp includes activities and games to keep children engaged while promoting healthy habits. Parents can receive valuable information on child nutrition, growth milestones, and preventive care. Ensure your child's health and well-being with this community-focused event. Snacks and drinks will be provided for all participants.",
-        "participants": [
-            {
-                "participant_name": "George Harris",
-                "payment_status": "Paid",
-                "payment_confirmation_status": "Confirmed"
-            },
-            {
-                "participant_name": "Hannah Clark",
-                "payment_status": "Pending",
-                "payment_confirmation_status": "Unconfirmed"
-            }
-        ]
+        "description": "Bring your children to the Pediatric Health Camp for comprehensive health checkups in a fun and friendly environment. Dr. Mike Brown and his team will conduct physical exams, immunizations, and developmental screenings. The camp includes activities and games to keep children engaged while promoting healthy habits. Parents can receive valuable information on child nutrition, growth milestones, and preventive care. Ensure your child's health and well-being with this community-focused event. Snacks and drinks will be provided for all participants."
     },
     {
         "campName": "Eye Checkup Camp",
@@ -95,19 +48,7 @@
         "location": "Vision Center, Eastside",
         "healthcareProfessional": "Dr. Lisa Green",
         "participantCount": 35,
-        "description": "Join us at the Eye Checkup Camp for a thorough vision examination by Dr. Lisa Green and her team. Services include vision tests, glaucoma screenings, and consultations on eye health. Participants can also get fitted for glasses if needed. Learn about maintaining good vision, preventing eye strain, and protecting your eyes from common issues. This camp is suitable for all ages, from children to seniors. Ensure your eyes are in top condition with professional advice and care. Complimentary refreshments will be available.",
-        "participants": [
-            {
-                "participant_name": "Ian Thompson",
-                "payment_status": "Paid",
-                "payment_confirmation_status": "Confirmed"
-            },
-            {
-                "participant_name": "Jessica Moore",
-                "payment_status": "Pending",
-                "payment_confirmation_status": "Unconfirmed"
-            }
-        ]
+        "description": "Join us at the Eye Checkup Camp for a thorough vision examination by Dr. Lisa Green and her team. Services include vision tests, glaucoma screenings, and consultations on eye health. Participants can also get fitted for glasses if needed. Learn about maintaining good vision, preventing eye strain, and protecting your eyes from common issues. This camp is suitable for all ages, from children to seniors. Ensure your eyes are in top condition with professional advice and care. Complimentary refreshments will be available."
     },
     {
         "campName": "Dental Health Camp",
@@ -117,19 +58,7 @@
         "location": "Dental Care Clinic, Northside",
         "healthcareProfessional": "Dr. Robert White",
         "participantCount": 45,
-        "description": "The Dental Health Camp provides comprehensive dental checkups and hygiene education. Led by Dr. Robert White, participants will receive oral exams, cleanings, and fluoride treatments. Learn about proper brushing techniques, cavity prevention, and overall oral health. This camp is designed to help you maintain a healthy smile and prevent dental issues. Suitable for all ages, this event emphasizes the importance of regular dental care. Take advantage of this opportunity for professional dental advice and care. Refreshments will be provided.",
-        "participants": [
-            {
-                "participant_name": "Kevin Martinez",
-                "payment_status": "Paid",
-                "payment_confirmation_status": "Confirmed"
-            },
-            {
-                "participant_name": "Laura Rodriguez",
-                "payment_status": "Pending",
-                "payment_confirmation_status": "Unconfirmed"
-            }
-        ]
+        "description": "The Dental Health Camp provides comprehensive dental checkups and hygiene education. Led by Dr. Robert White, participants will receive oral exams, cleanings, and fluoride treatments. Learn about proper brushing techniques, cavity prevention, and overall oral health. This camp is designed to help you maintain a healthy smile and prevent dental issues. Suitable for all ages, this event emphasizes the importance of regular dental care. Take advantage of this opportunity for professional dental advice and care. Refreshments will be provided."
     },
     {
         "campName": "Women’s Health Camp",
@@ -139,19 +68,7 @@
         "location": "Women's Wellness Center",
         "healthcareProfessional": "Dr. Maria Johnson",
         "participantCount": 55,
-        "description": "Attend the Women’s Health Camp to receive specialized care and advice from healthcare professionals led by Dr. Maria Johnson. Services include gynecological exams, breast cancer screenings, and consultations on reproductive health. Learn about women's health issues and preventive measures through informative sessions and interactive booths. This camp aims to empower women with knowledge and resources to maintain their health. Join us for a day dedicated to women's wellness and receive the care and support you deserve. Refreshments and snacks will be available.",
-        "participants": [
-            {
-                "participant_name": "Michael Garcia",
-                "payment_status": "Paid",
-                "payment_confirmation_status": "Confirmed"
-            },
-            {
-                "participant_name": "Natalie Lee",
-                "payment_status": "Pending",
-                "payment_confirmation_status": "Unconfirmed"
-            }
-        ]
+        "description": "Attend the Women’s Health Camp to receive specialized care and advice from healthcare professionals led by Dr. Maria Johnson. Services include gynecological exams, breast cancer screenings, and consultations on reproductive health. Learn about women's health issues and preventive measures through informative sessions and interactive booths. This camp aims to empower women with knowledge and resources to maintain their health. Join us for a day dedicated to women's wellness and receive the care and support you deserve. Refreshments and snacks will be available."
     },
     {
         "campName": "Orthopedic Camp",
@@ -161,19 +78,7 @@
         "location": "Orthopedic Hospital",
         "healthcareProfessional": "Dr. William Davis",
         "participantCount": 40,
-        "description": "The Orthopedic Camp offers expert consultations and assessments for bone and joint health. Dr. William Davis and his team will provide services including X-rays, physical exams, and mobility assessments. Learn about maintaining healthy bones, preventing injuries, and managing orthopedic conditions. This camp is ideal for individuals experiencing joint pain, recovering from injuries, or looking to improve their musculoskeletal health. Take advantage of professional advice and state-of-the-art diagnostic tools. Refreshments will be provided to all participants.",
-        "participants": [
-            {
-                "participant_name": "Oliver Anderson",
-                "payment_status": "Paid",
-                "payment_confirmation_status": "Confirmed"
-            },
-            {
-                "participant_name": "Patricia King",
-                "payment_status": "Pending",
-                "payment_confirmation_status": "Unconfirmed"
-            }
-        ]
+        "description": "The Orthopedic Camp offers expert consultations and assessments for bone and joint health. Dr. William Davis and his team will provide services including X-rays, physical exams, and mobility assessments. Learn about maintaining healthy bones, preventing injuries, and managing orthopedic conditions. This camp is ideal for individuals experiencing joint pain, recovering from injuries, or looking to improve their musculoskeletal health. Take advantage of professional advice and state-of-the-art diagnostic tools. Refreshments will be provided to all participants."
     },
     {
         "campName": "Mental Health Camp",
@@ -183,18 +88,6 @@
         "location": "Mental Wellness Center, Southside",
         "healthcareProfessional": "Dr. Angela Smith",
         "participantCount": 50,
-        "description": "Join the Mental Health Camp for a day dedicated to mental wellness. Led by Dr. Angela Smith, the camp offers counseling sessions, stress management workshops, and mindfulness activities. Learn about coping strategies, mental health resources, and self-care practices. This camp is designed to provide support and guidance for individuals dealing with stress, anxiety, or other mental health issues. Participate in group activities and one-on-one consultations to enhance your mental well-being. Complimentary refreshments will be available.",
-        "participants": [
-            {
-                "participant_name": "Quincy Wright",
-                "payment_status": "Paid",
-                "payment_confirmation_status": "Confirmed"
-            },
-            {
-                "participant_name": "Rachel Lopez",
-                "payment_status": "Pending",
-                "payment_confirmation_status": "Unconfirmed"
-            }
-        ]
+        "description": "Join the Mental Health Camp for a day dedicated to mental wellness. Led by Dr. Angela Smith, the camp offers counseling sessions, stress management workshops, and mindfulness activities. Learn about coping strategies, mental health resources, and self-care practices. This camp is designed to provide support and guidance for individuals dealing with stress, anxiety, or other mental health issues. Participate in group activities and one-on-one consultations to enhance your mental well-being. Complimentary refreshments will be available."
     }
 ]

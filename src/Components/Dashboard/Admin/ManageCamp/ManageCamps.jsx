@@ -52,17 +52,15 @@ const ManageCamps = () => {
         try {
             axiosSecure.get(`camps?currentPage=${currentPage - 1}&filter=${filter}&sort=${sort}`)
                 .then(data => {
-                    console.log(data.data);
                     setCamps(data.data)
                     setState(!state)
-                    console.log(currentPage);
                 })
         } catch (error) {
             setError(error.message);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ axiosSecure, currentPage,filter,refetch])
-
+console.log(camps);
     const pages = []
     for (let i = 0; i < numbersOfPage; i++) {
         pages.push(i)
@@ -230,6 +228,7 @@ const ManageCamps = () => {
                                 </thead>
                                 <tbody>
                                     {camps.map(camp => {
+                                        console.log(camp);
                                         return <tr key={camp._id} className='border border-secondary'>
                                             <td className='px-5 py-3'>{camp.campName}</td>
                                             <td className='px-5 py-3'>{camp.dateTime}</td>

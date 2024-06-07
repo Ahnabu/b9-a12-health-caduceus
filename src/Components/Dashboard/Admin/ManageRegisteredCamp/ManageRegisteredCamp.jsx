@@ -2,8 +2,7 @@ import { Helmet } from 'react-helmet'
 import { useQuery } from '@tanstack/react-query'
 import useAxiosSecure from '../../../../Utils/useAxiosSecure'
 import LoadingSpinner from '../../../Shared/LoadingSpinner'
-import { GrDocumentUpdate } from "react-icons/gr";
-import { MdDelete } from "react-icons/md";
+
 import Swal from 'sweetalert2';
 import useAuth from '../../../../Utils/useAuth';
 
@@ -17,45 +16,47 @@ import {
 } from "@material-tailwind/react";
 import { GrFormPrevious } from "react-icons/gr";
 import { GrFormNext } from "react-icons/gr";
+import { GiConfirmed } from "react-icons/gi";
+import { ImBlocked } from "react-icons/im";
 import '../../../Shared/style.css'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-const ManageRegisteredCamps = () => {
+import {  useNavigate } from 'react-router-dom';
+const ManageRegisteredCamp = () => {
     const { state, setState } = useAuth()
     const [count, setCount] = useState(8);
     const [filter, setFilter] = useState('');
     const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
-    const [camps, setCamps] = useState([])
+    const [participants, setParticipants] = useState([])
     const [sort, setSort] = useState('')
     const axiosSecure = useAxiosSecure()
+    const navigate = useNavigate()
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/camp-count`)
+        axios.get(`${import.meta.env.VITE_API_URL}/participant-count`)
             .then(data => {
                 setCount(data.data.count)
             }).catch(error => console.log(error))
     }, [currentPage])
     const numbersOfPage = Math.ceil(count / 8)
-    //   Fetch camps Data
+    //   Fetch participants Data
     const {
         isLoading,
         refetch,
     } = useQuery({
         queryKey: [],
         queryFn: async () => {
-            const { data } = await axiosSecure(`/camps`)
-            setCamps(data)
+            const { data } = await axiosSecure(`/participants`)
+            setParticipants(data)
             return data
         },
     })
     useEffect(() => {
         try {
-            axiosSecure.get(`camps?currentPage=${currentPage - 1}&filter=${filter}&sort=${sort}`)
+            axiosSecure.get(`participants?currentPage=${currentPage - 1}&filter=${filter}&sort=${sort}`)
                 .then(data => {
-                    console.log(data.data);
-                    setCamps(data.data)
+                    setParticipants(data.data)
                     setState(!state)
-                    console.log(currentPage);
+                    
                 })
         } catch (error) {
             setError(error.message);
@@ -71,40 +72,41 @@ const ManageRegisteredCamps = () => {
 
 
 
-    const handleDelete = (id) => {
+    const handleUpdate = async id => {
 
         console.log(id);
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: 'rgb(70 195 235 / var(--tw-bg-opacity))',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
 
+        try {
+            await axiosSecure.put(`/update-participant/${id}`, { confirmation_status: 'Confirmed', payment_status : 'Paid'
+})
+                .then(data => {
+                    console.log(data.data);
+                    if (data.data.modifiedCount > 0) {
 
-                axiosSecure.delete(`/delete/${id}`)
+                        Swal.fire({
+                            title: 'Success',
+                            text: 'Successfully Updated to database',
+                            icon: 'success',
+                            confirmButtonText: 'Cool'
+                        })
+                        navigate('/dashboard')
+                        setState(!state)
+                    }
 
-                    .then(data => {
-                        console.log(data.data);
-                        if (data.data.deletedCount > 0) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Camp has been deleted.',
-                                'success'
-                            )
+                })
+        }
+        catch {
+            Swal.fire({
+                title: 'Error',
+                text: 'Something went wrong',
+                icon: 'error',
+                confirmButtonText: 'Cool'
+            })
+        }
 
-                            setState(!state);
-                        }
-                    })
-
-            }
-        })
 
     }
+
 
 
     const handlePrev = () => {
@@ -136,20 +138,20 @@ const ManageRegisteredCamps = () => {
         <>
             <div className='container mx-auto px-4 sm:px-8'>
                 <Helmet>
-                    <title>Health Caduceus ||Manage Registered camps</title>
+                    <title>Health Caduceus ||Manage Registered participants</title>
                 </Helmet>
                 <div className='py-8'>
                     <div className='text-center'>
                         <h1 className='text-2xl font-bold text-primary'>
-                            Manage Registered Camps
+                            Manage Registered participants
                         </h1>
-                        <p className='text-primary'>Manage all Registered Camps here</p>
+                        <p className='text-primary'>Manage all Registered participants here</p>
                         <div className='md:flex gap-4 mx-auto w-full justify-center  text-center'>
                             <div className="text-center md:mr-20  ">
                                 <form className="w-32 space-y-1 dark:text-gray-800 mx-auto" onSubmit={handleFilter}>
                                     <label htmlFor="Search" className="hidden">Search</label>
                                     <div className="relative mx-auto">
-                                        <input type="search" name="search" placeholder="Search camp names..." className="w-32 py-2 pl-10 text-sm  border border-primary rounded-md sm:w-auto focus:outline-none text-black bg-gray-100 dark:text-gray-800 focus:dark:bg-gray-50 focus:dark:border-violet-600" />
+                                        <input type="search" name="search" placeholder="Search participant names..." className="w-32 py-2 pl-10 text-sm  border border-primary rounded-md sm:w-auto focus:outline-none text-black bg-gray-100 dark:text-gray-800 focus:dark:bg-gray-50 focus:dark:border-violet-600" />
                                         <span className="absolute inset-y-0 left-0 flex items-center pl-2">
 
                                             <button type="submit" title="search" className="p-1  focus:outline-none focus:ring">
@@ -175,9 +177,9 @@ const ManageRegisteredCamps = () => {
                                         <MenuItem value={'dateTime'}
                                             className="bg-primary bg-opacity-55 text-white" onClick={() => { setSort('dateTime'), refetch() }}
                                         > Date</MenuItem>
-                                        <MenuItem value={'campName'}
+                                        <MenuItem value={'participantName'}
                                             className="bg-primary bg-opacity-55 text-white"
-                                            onClick={() => { setSort('campName'), refetch() }}>Camp Name</MenuItem>
+                                            onClick={() => { setSort('participantName'), refetch() }}>participant Name</MenuItem>
                                     </MenuList>
                                 </Menu>
                             </div>
@@ -193,64 +195,68 @@ const ManageRegisteredCamps = () => {
                                             scope='col'
                                             className='px-5 py-3 bg-primary border-b border-gray-200 text-white  text-left text-sm uppercase font-normal'
                                         >
+                                            Participant Name
+                                        </th>
+                                        <th
+                                            scope='col'
+                                            className='px-5 py-3 bg-primary border-b border-gray-200 text-white  text-left text-sm uppercase font-normal'
+                                        >
                                             Camp Name
                                         </th>
+                                       
                                         <th
                                             scope='col'
                                             className='px-5 py-3 bg-primary border-b border-gray-200 text-white  text-left text-sm uppercase font-normal'
                                         >
-                                            Date & Time
-                                        </th>
-                                        <th
-                                            scope='col'
-                                            className='px-5 py-3 bg-primary border-b border-gray-200 text-white  text-left text-sm uppercase font-normal'
-                                        >
-                                            Healthcare Professional
+                                            Camp Fees
                                         </th>
 
                                         <th
                                             scope='col'
                                             className='px-5 py-3 bg-primary border-b border-gray-200 text-white  text-left text-sm uppercase font-normal'
                                         >
-                                            Location
+                                            Payment Status
                                         </th>
                                         <th
                                             scope='col'
                                             className='px-5 py-3 bg-primary border-b border-gray-200 text-white  text-left text-sm uppercase font-normal'
                                         >
-                                            Update
+                                            Confirmation Status
                                         </th>
                                         <th
                                             scope='col'
                                             className='px-5 py-3 bg-primary border-b border-gray-200 text-white  text-left text-sm uppercase font-normal'
                                         >
-                                            Delete
+                                            Cancel
                                         </th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {camps.map(camp => {
-                                        return <tr key={camp._id} className='border border-secondary'>
-                                            <td className='px-5 py-3'>{camp.campName}</td>
-                                            <td className='px-5 py-3'>{camp.dateTime}</td>
-                                            <td className='px-5 py-3'>{camp.healthcareProfessional}</td>
-                                            <td className='px-5 py-3'>{camp.location}</td>
+                                    {participants.map(participant => {
+                                        
+                                        
+                                        return <tr key={participant._id} className='border border-secondary'>
+                                            <td className='px-5 py-3'>{participant.participant_name}</td>
+                                            <td className='px-5 py-3'>{participant.campName}</td>
+                                            <td className='px-5 py-3'>{participant.campFees}</td>
+                                            <td className='px-5 py-3'>{participant.payment_status}</td>
+                                            <td className='px-5 py-3'>{participant.confirmation_status}</td>
                                             <td className='px-5 py-3'>
 
-                                                <Link to={`update/${camp._id}`}>
-                                                    <Button variant='outlined' className='bg-primary text-secondary text-xl border-secondary'>
-                                                        <GrDocumentUpdate></GrDocumentUpdate>
+                                                <Button variant='outlined' className={`bg-primary text-secondary text-xl border-secondary`}
+                                                   
+                                                    disabled={
+                                                        participant.confirmation_status == 'Confirmed' && participant.payment_status == 'Paid'
+                                                }
+                                                   
+                                                    onClick={() => { handleUpdate(participant._id) }}>
+                                                    {participant.confirmation_status =='Pending'?<GiConfirmed></GiConfirmed>:<ImBlocked></ImBlocked> }
                                                     </Button>
-                                                </Link>
+                                                
 
                                             </td>
-                                            <td className='px-5 py-3 '>
-                                                <Button variant='outlined' className='bg-primary text-xl text-secondary border-secondary'
-                                                    onClick={() => { handleDelete(camp._id) }}
-                                                >
-                                                    <MdDelete></MdDelete>
-                                                </Button>
-                                            </td>
+                                           
                                         </tr>
                                     })}
                                 </tbody>
@@ -281,4 +287,4 @@ const ManageRegisteredCamps = () => {
     )
 }
 
-export default ManageRegisteredCamps
+export default ManageRegisteredCamp
