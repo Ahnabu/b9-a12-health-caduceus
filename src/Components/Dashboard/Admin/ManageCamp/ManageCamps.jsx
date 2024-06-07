@@ -1,11 +1,11 @@
 import { Helmet } from 'react-helmet'
 import { useQuery } from '@tanstack/react-query'
-import useAxiosSecure from '../../../Utils/useAxiosSecure'
-import LoadingSpinner from '../../Shared/LoadingSpinner'
+import useAxiosSecure from '../../../../Utils/useAxiosSecure'
+import LoadingSpinner from '../../../Shared/LoadingSpinner'
 import { GrDocumentUpdate } from "react-icons/gr";
 import { MdDelete } from "react-icons/md";
 import Swal from 'sweetalert2';
-import useAuth from '../../../Utils/useAuth';
+import useAuth from '../../../../Utils/useAuth';
 
 import { useEffect, useState } from 'react';
 import {
@@ -17,7 +17,7 @@ import {
 } from "@material-tailwind/react";
 import { GrFormPrevious } from "react-icons/gr";
 import { GrFormNext } from "react-icons/gr";
-import '../../Shared/style.css'
+import '../../../Shared/style.css'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 const ManageCamps = () => {
@@ -60,6 +60,7 @@ const ManageCamps = () => {
         } catch (error) {
             setError(error.message);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ axiosSecure, currentPage,filter,refetch])
 
     const pages = []

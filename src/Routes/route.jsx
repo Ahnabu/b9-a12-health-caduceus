@@ -11,9 +11,9 @@ import Dashboard from "../Components/Dashboard/Dashboard";
 import Profile from "../Components/Dashboard/Profile/Profile";
 import UpdateUserModal from "../Components/Dashboard/Profile/UpdateProfile/UpdateProfile";
 import OrganizerRoute from "./OrganizerRoute";
-import AddCamp from "../Components/Dashboard/AddCamp/AddCamp";
-import ManageCamps from "../Components/Dashboard/ManageCamp/ManageCamps";
-import UpdateCamp from "../Components/Dashboard/UpdateCamp/UpdateCamp";
+import AddCamp from "../Components/Dashboard/Admin/AddCamp/AddCamp";
+import ManageCamps from "../Components/Dashboard/Admin/ManageCamp/ManageCamps";
+import UpdateCamp from "../Components/Dashboard/Admin/UpdateCamp/UpdateCamp";
 
 export const router = createBrowserRouter([
     {

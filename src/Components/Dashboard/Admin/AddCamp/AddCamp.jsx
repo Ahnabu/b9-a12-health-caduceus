@@ -17,9 +17,9 @@ import {
 
 import Swal from 'sweetalert2'
 import { Helmet } from "react-helmet";
-import useAuth from "../../../Utils/useAuth";
+import useAuth from "../../../../Utils/useAuth";
 import { useForm } from "react-hook-form";
-import useAxiosSecure from "../../../Utils/useAxiosSecure";
+import useAxiosSecure from "../../../../Utils/useAxiosSecure";
 import { useNavigate } from "react-router-dom";
 
 
