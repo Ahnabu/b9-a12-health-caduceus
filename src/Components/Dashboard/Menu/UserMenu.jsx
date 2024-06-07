@@ -7,7 +7,7 @@ const UserMenu = () => {
         <div>
             <MenuItem
                 label='Analytics'
-                address='/dashboard'
+                address='analytics'
                 className="rounded"
                 icon={MdAnalytics}
             />

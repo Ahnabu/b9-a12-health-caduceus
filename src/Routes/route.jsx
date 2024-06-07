@@ -15,6 +15,7 @@ import AddCamp from "../Components/Dashboard/Admin/AddCamp/AddCamp";
 import ManageCamps from "../Components/Dashboard/Admin/ManageCamp/ManageCamps";
 import UpdateCamp from "../Components/Dashboard/Admin/UpdateCamp/UpdateCamp";
 import ManageRegisteredCamp from "../Components/Dashboard/Admin/ManageRegisteredCamp/ManageRegisteredCamp";
+import Analytics from "../Components/Dashboard/Participant/Analytics/Analytics";
 
 export const router = createBrowserRouter([
     {
@@ -80,6 +81,10 @@ export const router = createBrowserRouter([
             {
                 path: 'manage-camps/update/:id',
                 element: <OrganizerRoute><UpdateCamp></UpdateCamp></OrganizerRoute>
+            },
+            {
+                path: 'analytics',
+                element: <PrivateRoute><Analytics></Analytics></PrivateRoute>
             },
             
         ]

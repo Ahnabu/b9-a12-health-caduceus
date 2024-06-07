@@ -39,7 +39,7 @@ export function DialogDefault({card}) {
 
                        
                         try {
-                            axiosSecure.put(`/update-camp/${_id}`, { participantCount:updatedParticipantCount})
+                            axiosSecure.put(`/update-camp/${_id}`, { ...card,participantCount:updatedParticipantCount})
                                 .then(data => {
                                     console.log(data.data);
                                     if (data.data.modifiedCount > 0) {
