@@ -71,13 +71,13 @@ console.log(camps);
 
     const handleDelete = (id) => {
         
-        console.log(id);
+        
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: 'rgb(70 195 235 / var(--tw-bg-opacity))',
+            confirmButtonColor: 'rgb(70 195 235)',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {

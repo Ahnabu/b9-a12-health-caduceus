@@ -20,7 +20,7 @@ import { GiConfirmed } from "react-icons/gi";
 import { ImBlocked } from "react-icons/im";
 import '../../../Shared/style.css'
 import axios from 'axios';
-import {  useNavigate } from 'react-router-dom';
+
 const ManageRegisteredCamp = () => {
     const { state, setState } = useAuth()
     const [count, setCount] = useState(8);
@@ -30,7 +30,7 @@ const ManageRegisteredCamp = () => {
     const [participants, setParticipants] = useState([])
     const [sort, setSort] = useState('')
     const axiosSecure = useAxiosSecure()
-    const navigate = useNavigate()
+
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/participant-count`)
             .then(data => {
@@ -72,38 +72,72 @@ const ManageRegisteredCamp = () => {
 
 
 
-    const handleUpdate = async id => {
+//     const handleUpdate = async id => {
 
-        console.log(id);
+//         console.log(id);
 
-        try {
-            await axiosSecure.put(`/update-participant/${id}`, { confirmation_status: 'Confirmed', payment_status : 'Paid'
-})
-                .then(data => {
-                    console.log(data.data);
-                    if (data.data.modifiedCount > 0) {
+//         try {
+//             await axiosSecure.put(`/update-participant/${id}`, { confirmation_status: 'Confirmed', payment_status : 'Paid'
+// })
+//                 .then(data => {
+//                     console.log(data.data);
+//                     if (data.data.modifiedCount > 0) {
 
-                        Swal.fire({
-                            title: 'Success',
-                            text: 'Successfully Updated to database',
-                            icon: 'success',
-                            confirmButtonText: 'Cool'
-                        })
-                        navigate('/dashboard')
-                        setState(!state)
-                    }
+//                         Swal.fire({
+//                             title: 'Success',
+//                             text: 'Successfully Updated to database',
+//                             icon: 'success',
+//                             confirmButtonText: 'Cool'
+//                         })
+//                         navigate('/dashboard')
+//                         setState(!state)
+//                     }
 
-                })
-        }
-        catch {
-            Swal.fire({
-                title: 'Error',
-                text: 'Something went wrong',
-                icon: 'error',
-                confirmButtonText: 'Cool'
-            })
-        }
+//                 })
+//         }
+//         catch {
+//             Swal.fire({
+//                 title: 'Error',
+//                 text: 'Something went wrong',
+//                 icon: 'error',
+//                 confirmButtonText: 'Cool'
+//             })
+//         }
 
+
+//     }
+    const handleDelete = (id) => {
+
+    
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: 'rgb(70 195 235)',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, cancel it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+
+                axiosSecure.delete(`/delete-participant/${id}`)
+
+                    .then(data => {
+                        console.log(data.data);
+                        if (data.data.deletedCount > 0) {
+                            Swal.fire(
+                                'Canceled!',
+                                'Participant has been deleted.',
+                                'success'
+                            )
+                            refetch()
+                            setState(!state);
+                        }
+                    })
+
+            }
+        })
 
     }
 
@@ -250,7 +284,7 @@ const ManageRegisteredCamp = () => {
                                                         participant.confirmation_status == 'Confirmed' && participant.payment_status == 'Paid'
                                                 }
                                                    
-                                                    onClick={() => { handleUpdate(participant._id) }}>
+                                                    onClick={() => { handleDelete(participant._id) }}>
                                                     {participant.confirmation_status =='Pending'?<GiConfirmed></GiConfirmed>:<ImBlocked></ImBlocked> }
                                                     </Button>
                                                 
