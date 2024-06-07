@@ -11,17 +11,72 @@ import {
     
 } from "@material-tailwind/react";
 import { useForm} from "react-hook-form"
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../Utils/useAxiosSecure";
+import useAuth from "../../Utils/useAuth";
 export function DialogDefault({card}) {
     const [open, setOpen] = React.useState(false);
-
+    const navigate = useNavigate()
+    const axiosSecure = useAxiosSecure()
     const handleOpen = () => setOpen(!open);
-    console.log(card);
-    // const { participantCount, healthcareProfessional, location, dateTime, campFees, image, campName, description } = card
+    const {state,setState,user}= useAuth()
+    let { participantCount,  campFees, campName,_id } = card
 
     const { register, handleSubmit } = useForm();
-    const handleJoin = ( data) => {
-       
+    const participant_name = user?.displayName;
+    const email = user?.email
+    const handleJoin = async( data) => {
+       const updatedParticipantCount = parseFloat(participantCount) + 1
+        console.log(updatedParticipantCount);
         console.log(data);
+        const info = { ...data, campFees, campName, participant_name, email, payment_status: "Unpaid", confirmation_status: "Pending" }
+        try {
+            await axiosSecure.post(`${import.meta.env.VITE_API_URL}/participants`,info )
+                .then(data => {
+                    console.log(data.data);
+                    if (data.data.insertedId) {
+
+                       
+                        try {
+                            axiosSecure.put(`/update-camp/${_id}`, { participantCount:updatedParticipantCount})
+                                .then(data => {
+                                    console.log(data.data);
+                                    if (data.data.modifiedCount > 0) {
+
+                                        Swal.fire({
+                                            title: 'Success',
+                                            text: 'Successfully added to database, please confirm your payment',
+                                            icon: 'success',
+                                            confirmButtonText: 'Cool'
+                                        })
+                                        navigate('/dashboard')
+                                        setState(!state)
+                                    }
+
+                                })
+                        } catch {
+                            Swal.fire({
+                                title: 'Error',
+                                text: 'Something went wrong',
+                                icon: 'error',
+                                confirmButtonText: 'Cool'
+                            })
+                        }
+                        navigate('/')
+                        setState(!state)
+                    }
+
+                })
+        }
+        catch {
+            Swal.fire({
+                title: 'Error',
+                text: 'Something went wrong',
+                icon: 'error',
+                confirmButtonText: 'Cool'
+            })
+        }
 
     }
     return (
@@ -33,7 +88,7 @@ export function DialogDefault({card}) {
                 <DialogHeader>Its a simple dialog.</DialogHeader>
                 <DialogBody>
                     <form className="flex flex-col mt-8" onSubmit={handleSubmit(handleJoin)}>
-                   
+                  
                     
                         <div className="mb-6 flex flex-col items-end gap-4 md:flex-row">
                             <div className="w-full">
@@ -45,7 +100,7 @@ export function DialogDefault({card}) {
                                 </Typography>
                                 <Input
                                     size="lg" {...register("age")}
-                                    placeholder="$20 (currency dollar)"
+                                    placeholder="20"
                                     labelProps={{
                                         className: "hidden",
                                     }}
@@ -64,7 +119,7 @@ export function DialogDefault({card}) {
                                 </Typography>
                                 <Input
                                     size="lg" {...register("number")}
-                                    placeholder="10"
+                                    placeholder="01254487875"
                                     labelProps={{
                                         className: "hidden",
                                     }}
@@ -88,7 +143,7 @@ export function DialogDefault({card}) {
                                 
                                 <Input
                                     size="lg" {...register("gender")}
-                                    placeholder="Yes"
+                                    placeholder="Male"
                                     labelProps={{
                                         className: "hidden",
                                     }}

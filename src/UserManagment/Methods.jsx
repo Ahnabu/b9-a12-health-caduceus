@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 
 
 const Methods = () => {
-    const { googleSingIn, setUser, user } = useAuth()
+    const { googleSingIn, setUser} = useAuth()
     const navigate = useNavigate();
     const location = useLocation();
     const handleGoogle = async () => {
@@ -22,12 +22,12 @@ const Methods = () => {
                 { email: result?.user?.email , role:"User"},
                 { withCredentials: true })
            
-            await axios.get(`${import.meta.env.VITE_API_URL}/users/${user?.email}`, {
-                withCredentials: true,
-                params: {
-                    email: user?.email
-                }
-            })
+            // await axios.get(`${import.meta.env.VITE_API_URL}/users/${user?.email}`, {
+            //     withCredentials: true,
+            //     params: {
+            //         email: user?.email
+            //     }
+            // })
             
 
             setUser(result.user)

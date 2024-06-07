@@ -28,7 +28,7 @@ function LogIn() {
             const result = await LogInEmail(data?.email,data?.password)
             console.log(result?.user);
             setUser(result.user)
-            await axios.get(`${import.meta.env.VITE_API_URL}/users`)
+            await axios.post(`${import.meta.env.VITE_API_URL}/users`)
             .then(res=> setUser(res.data))
             navigate(location?.state || '/', { replace: true })
             Swal.fire({
