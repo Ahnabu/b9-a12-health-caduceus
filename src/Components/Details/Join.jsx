@@ -50,7 +50,7 @@ export function DialogDefault({card}) {
                                             icon: 'success',
                                             confirmButtonText: 'Cool'
                                         })
-                                        navigate('/dashboard')
+                                        navigate('/dashboard/registered-camps')
                                         setState(!state)
                                     }
 
@@ -63,7 +63,7 @@ export function DialogDefault({card}) {
                                 confirmButtonText: 'Cool'
                             })
                         }
-                        navigate('/')
+                        
                         setState(!state)
                     }
 
