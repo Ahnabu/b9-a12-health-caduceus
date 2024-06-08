@@ -17,6 +17,7 @@ import UpdateCamp from "../Components/Dashboard/Admin/UpdateCamp/UpdateCamp";
 import ManageRegisteredCamp from "../Components/Dashboard/Admin/ManageRegisteredCamp/ManageRegisteredCamp";
 import Analytics from "../Components/Dashboard/Participant/Analytics/Analytics";
 import RegisteredCamp from "../Components/Dashboard/Participant/RegisteredCamp/RegisteredCamp";
+import { DialogDefault } from "../Components/Dashboard/Participant/RegisteredCamp/FeedbackModal";
 
 export const router = createBrowserRouter([
     {
@@ -44,11 +45,7 @@ export const router = createBrowserRouter([
                 element:<Register></Register>
                 
             },
-            {
-                path: '/register',
-                element:<Register></Register>
-                
-            },
+            
             {
                 path: '/details/:id',
                 element: <Details></Details>,
@@ -71,6 +68,10 @@ export const router = createBrowserRouter([
             {
                 path: 'update-profile',
                 element:<PrivateRoute><UpdateUserModal></UpdateUserModal></PrivateRoute>
+            },
+            {
+                path: 'feedback',
+                element:<PrivateRoute><DialogDefault></DialogDefault></PrivateRoute>
             },
             {
                 path: 'add-camp',

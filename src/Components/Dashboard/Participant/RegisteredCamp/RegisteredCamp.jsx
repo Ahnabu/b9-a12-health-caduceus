@@ -312,7 +312,7 @@ const RegisteredCamp = () => {
                                            
                                             <td className='px-5 py-3'>{participant.campName}</td>
                                             <td className='px-5 py-3'>{participant.campFees}</td>
-                                            <td className='px-5 py-3'>{participant.payment_status === "Unpaid" ? <Button variant='outlined' className={`bg-primary text-secondary border-secondary flex gap-1`}
+                                            <td className='px-5 py-3'>{participant.payment_status === "Unpaid" ? <Button variant='outlined' className={`bg-primary text-secondary border-secondary flex gap-2`}
 
                                                  
                                                     onClick={() => { handlePay(participant._id) }}> <MdOutlinePayment className='text-xl -m-1'></MdOutlinePayment> Pay </Button>:"Paid" }</td>
@@ -332,8 +332,8 @@ const RegisteredCamp = () => {
 
                                             </td>
                                             <td className='px-5 py-3'>
-                                              
-                                                  <Button variant='outlined' className={`bg-primary text-secondary text-xl border-secondary`}
+                                          
+                                                  <Button variant='outlined' className={`bg-primary text-secondary text-xl border-secondary p-0`}
 
                                                     disabled={
                                                         participant.confirmation_status !== 'Confirmed' || participant.payment_status !== 'Paid'

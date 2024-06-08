@@ -1,3 +1,4 @@
+import Feedback from "./Feedback/Feedback";
 import PopularCards from "./Popular/PopularCards";
 import Slider from "./Slider/Slider";
 
@@ -10,6 +11,7 @@ const HomePage = () => {
                 <Slider></Slider>
             </div>
             <PopularCards></PopularCards>
+            <Feedback></Feedback>
         </div>
 
     );
