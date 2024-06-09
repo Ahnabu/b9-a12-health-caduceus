@@ -32,7 +32,7 @@ const AddCamp = () => {
     const navigate = useNavigate()
     const handleAdd = async data => {
 
-        console.log(data);
+ 
 
         try {
             await axiosSecure.post(`${import.meta.env.VITE_API_URL}/add-camp`, { ...data, participantCount: 0 })

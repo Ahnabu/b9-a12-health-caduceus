@@ -72,40 +72,7 @@ const ManageRegisteredCamp = () => {
 
 
 
-//     const handleUpdate = async id => {
 
-//         console.log(id);
-
-//         try {
-//             await axiosSecure.put(`/update-participant/${id}`, { confirmation_status: 'Confirmed', payment_status : 'Paid'
-// })
-//                 .then(data => {
-//                     console.log(data.data);
-//                     if (data.data.modifiedCount > 0) {
-
-//                         Swal.fire({
-//                             title: 'Success',
-//                             text: 'Successfully Updated to database',
-//                             icon: 'success',
-//                             confirmButtonText: 'Cool'
-//                         })
-//                         navigate('/dashboard')
-//                         setState(!state)
-//                     }
-
-//                 })
-//         }
-//         catch {
-//             Swal.fire({
-//                 title: 'Error',
-//                 text: 'Something went wrong',
-//                 icon: 'error',
-//                 confirmButtonText: 'Cool'
-//             })
-//         }
-
-
-//     }
     const handleDelete = (id) => {
 
     
@@ -124,7 +91,7 @@ const ManageRegisteredCamp = () => {
                 axiosSecure.delete(`/delete-participant/${id}`)
 
                     .then(data => {
-                        console.log(data.data);
+                     
                         if (data.data.deletedCount > 0) {
                             Swal.fire(
                                 'Canceled!',

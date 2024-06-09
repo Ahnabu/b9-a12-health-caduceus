@@ -30,7 +30,7 @@ function Register() {
     const { register, handleSubmit } = useForm();
 
     const handleRegistration = async data => {
-        console.log(data);
+
        const password = data.password
         const MIN_LENGTH = 6;
 
@@ -58,7 +58,7 @@ function Register() {
         }
         setError('')
 
-console.log(password);
+
         try {
             
             const email = data?.email
@@ -66,7 +66,7 @@ console.log(password);
             const result = await EmailSingIn(data?.email, data?.password)
                
                     // User creation successful
-            console.log(result.user);
+
             //update user
             await updateProfile(auth.currentUser, {
                 displayName: `${data?.displayName}`, photoURL: `${data?.photoURL}`

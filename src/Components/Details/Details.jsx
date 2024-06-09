@@ -24,7 +24,7 @@ const Details = () => {
         
      
    
-    console.log(card);
+
     const { participantCount, healthcareProfessional, location, dateTime, campFees, image, campName,  description } = card
     return (
         <div>

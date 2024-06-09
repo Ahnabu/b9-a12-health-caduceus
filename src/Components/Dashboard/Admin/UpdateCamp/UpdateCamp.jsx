@@ -57,12 +57,10 @@ const UpdateCamp = () => {
     const navigate = useNavigate()
     const handleUpdate = async data => {
 
-        console.log(data);
 
         try {
             await axiosSecure.put(`${import.meta.env.VITE_API_URL}/update-camp/${id}`, data)
                 .then(data => {
-                    console.log(data.data);
                     if (data.data.modifiedCount >0) {
 
                         Swal.fire({

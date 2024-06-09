@@ -18,7 +18,7 @@ const Profile = () => {
     const [role, isLoading] = useRole()
     const [open, setOpen] = useState(false);
     console.log(role,isLoading);
-    console.log(user)
+
     if (isLoading || loading) return <LoadingSpinner />
     
 

@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet'
 import { useQuery } from '@tanstack/react-query'
 import useAxiosSecure from '../../../../Utils/useAxiosSecure'
 import LoadingSpinner from '../../../Shared/LoadingSpinner'
-import { MdOutlinePayment } from "react-icons/md";
+
 import Swal from 'sweetalert2';
 import useAuth from '../../../../Utils/useAuth';
 
@@ -21,20 +21,19 @@ import { MdCancel } from "react-icons/md";
 import { ImBlocked } from "react-icons/im";
 import '../../../Shared/style.css'
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { DialogDefault } from './FeedbackModal';
 import PayModal from './PayModal/PayModal';
 
 const RegisteredCamp = () => {
     const { state, setState,user } = useAuth()
     const [count, setCount] = useState(8);
-    const [filter, setFilter] = useState('');
+    // const [filter, setFilter] = useState('');
     const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [participants, setParticipants] = useState([])
     const [sort, setSort] = useState('')
     const axiosSecure = useAxiosSecure()
-    const navigate = useNavigate()
+
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/participant-count`)
             .then(data => {
@@ -54,19 +53,7 @@ const RegisteredCamp = () => {
             return data
         },
     })
-    useEffect(() => {
-        try {
-            axiosSecure.get(`participants?currentPage=${currentPage - 1}&filter=${filter}&sort=${sort}`)
-                .then(data => {
-                    setParticipants(data.data)
-                    setState(!state)
 
-                })
-        } catch (error) {
-            setError(error.message);
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [axiosSecure, currentPage, filter, refetch])
 
     const pages = []
     for (let i = 0; i < numbersOfPage; i++) {
@@ -246,7 +233,7 @@ const RegisteredCamp = () => {
                                            
                                             <td className='px-5 py-3'>{participant.campName}</td>
                                             <td className='px-5 py-3'>{participant.campFees}</td>
-                                            <td className='px-5 py-3'>{participant.payment_status === "Unpaid" ?<PayModal participant={participant}></PayModal> :"Paid" }</td>
+                                            <td className='px-5 py-3'>{participant.payment_status === "Unpaid" ?<PayModal participant={participant} refetch={refetch}></PayModal> :"Paid" }</td>
                                             <td className='px-5 py-3'>{participant.confirmation_status}</td>
                                             <td className='px-5 py-3'>
 

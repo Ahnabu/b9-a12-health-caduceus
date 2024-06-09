@@ -33,7 +33,7 @@ export function DialogDefault({ participant }) {
         try {
             await axiosSecure.post(`${import.meta.env.VITE_API_URL}/feedback`, info)
                 .then(data => {
-                    console.log(data.data);
+
                     if (data.data.insertedId) {
 
                         Swal.fire({
@@ -56,7 +56,6 @@ export function DialogDefault({ participant }) {
                 confirmButtonText: 'Cool'
             })
         }
-        console.log(info);
 
     }
     return (

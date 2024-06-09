@@ -18,6 +18,7 @@ import ManageRegisteredCamp from "../Components/Dashboard/Admin/ManageRegistered
 import Analytics from "../Components/Dashboard/Participant/Analytics/Analytics";
 import RegisteredCamp from "../Components/Dashboard/Participant/RegisteredCamp/RegisteredCamp";
 import { DialogDefault } from "../Components/Dashboard/Participant/RegisteredCamp/FeedbackModal";
+import PaymentHistory from "../Components/Dashboard/Participant/PaymentHistory/PaymentHistory";
 
 export const router = createBrowserRouter([
     {
@@ -92,6 +93,11 @@ export const router = createBrowserRouter([
             {
                 path: 'analytics',
                 element: <PrivateRoute><Analytics></Analytics></PrivateRoute>
+            },
+            
+            {
+                path: 'payment-history',
+                element: <PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
             },
             
             {

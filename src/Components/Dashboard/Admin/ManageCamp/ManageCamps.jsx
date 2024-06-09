@@ -60,7 +60,7 @@ const ManageCamps = () => {
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ axiosSecure, currentPage,filter,refetch])
-console.log(camps);
+
     const pages = []
     for (let i = 0; i < numbersOfPage; i++) {
         pages.push(i)
@@ -87,7 +87,7 @@ console.log(camps);
                 axiosSecure.delete(`/delete/${id}`)
                    
                     .then(data => {
-                        console.log(data.data);
+                 
                         if (data.data.deletedCount > 0) {
                             Swal.fire(
                                 'Deleted!',
@@ -228,7 +228,7 @@ console.log(camps);
                                 </thead>
                                 <tbody>
                                     {camps.map(camp => {
-                                        console.log(camp);
+                                  
                                         return <tr key={camp._id} className='border border-secondary'>
                                             <td className='px-5 py-3'>{camp.campName}</td>
                                             <td className='px-5 py-3'>{camp.dateTime}</td>

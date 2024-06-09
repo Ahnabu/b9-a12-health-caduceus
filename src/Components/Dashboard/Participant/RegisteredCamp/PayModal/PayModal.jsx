@@ -9,63 +9,19 @@ import { useState } from 'react'
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
 import CheckoutForm from '../CheckoutForm/CheckoutForm'
-import { useNavigate } from 'react-router-dom'
-import useAxiosSecure from '../../../../../Utils/useAxiosSecure'
-import useAuth from '../../../../../Utils/useAuth'
 import { MdOutlinePayment } from 'react-icons/md';
-import Swal from 'sweetalert2';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY)
 
 const PayModal = ({  participant, refetch }) => {
 
     const [open, setOpen] = useState(false);
-    const navigate = useNavigate()
-    const axiosSecure = useAxiosSecure()
     const handleOpen = () => setOpen(!open);
-    const { state, setState, user } = useAuth();
 
-    const handlePay = async id => {
-
-        console.log(id);
-
-        // try {
-        //     await axiosSecure.put(`/update-participant/${id}`, {
-        //         confirmation_status: 'Confirmed', payment_status: 'Paid'
-        //     })
-        //         .then(data => {
-        //             console.log(data.data);
-        //             if (data.data.modifiedCount > 0) {
-
-        //                 Swal.fire({
-        //                     title: 'Success',
-        //                     text: 'Successfully Updated to database',
-        //                     icon: 'success',
-        //                     confirmButtonText: 'Cool'
-        //                 })
-        //                 navigate('/dashboard')
-        //                 setState(!state)
-        //             }
-
-        //         })
-        // }
-        // catch {
-        //     Swal.fire({
-        //         title: 'Error',
-        //         text: 'Something went wrong',
-        //         icon: 'error',
-        //         confirmButtonText: 'Cool'
-        //     })
-        // }
-
-
-    }
     return (
         <>
-            <button onClick={handleOpen} className="bg-primary text-white font-semibold tracking-wide border border-white rounded-md dark:bg-violet-600 p-0">
-                <Button variant='outlined' className={`bg-primary text-secondary flex gap-2 border-secondary`} onClick={() => { handlePay(participant._id) }}>
+                <Button variant='outlined' className={`bg-primary text-secondary flex gap-2 border-secondary`} onClick={handleOpen}>
                 <MdOutlinePayment className='text-xl -m-1'></MdOutlinePayment> Pay </Button>
-            </button>
 
             <Dialog open={open} handler={handleOpen}>
                 <DialogHeader

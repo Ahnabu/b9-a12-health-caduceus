@@ -26,7 +26,7 @@ function LogIn() {
         
         try {
             const result = await LogInEmail(data?.email,data?.password)
-            console.log(result?.user);
+
             setUser(result.user)
             await axios.post(`${import.meta.env.VITE_API_URL}/users`)
             .then(res=> setUser(res.data))

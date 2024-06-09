@@ -10,7 +10,7 @@ const UpdateProfile = () => {
         const form = new FormData(e.currentTarget);
         const name = form.get('name');
         const photoURL = form.get('photoURL');
-        console.log(name, photoURL);
+
         ProfileUpdate(name, photoURL)
        
 

@@ -21,27 +21,26 @@ export function DialogDefault({card}) {
     const axiosSecure = useAxiosSecure()
     const handleOpen = () => setOpen(!open);
     const {state,setState,user}= useAuth()
-    let { participantCount,  campFees, campName,_id } = card
+    let { participantCount, campFees, campName, _id } = card
+
 
     const { register, handleSubmit } = useForm();
     const participant_name = user?.displayName;
     const email = user?.email
     const handleJoin = async( data) => {
        const updatedParticipantCount = parseFloat(participantCount) + 1
-        console.log(updatedParticipantCount);
-        console.log(data);
         const info = { ...data, campFees, campName, participant_name, email, payment_status: "Unpaid", confirmation_status: "Pending" }
         try {
             await axiosSecure.post(`${import.meta.env.VITE_API_URL}/participants`,info )
                 .then(data => {
-                    console.log(data.data);
+
                     if (data.data.insertedId) {
 
                        
                         try {
                             axiosSecure.put(`/update-camp/${_id}`, { ...card,participantCount:updatedParticipantCount})
                                 .then(data => {
-                                    console.log(data.data);
+
                                     if (data.data.modifiedCount > 0) {
 
                                         Swal.fire({

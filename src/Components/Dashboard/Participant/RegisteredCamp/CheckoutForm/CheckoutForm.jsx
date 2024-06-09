@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 import useAxiosSecure from '../../../../../Utils/useAxiosSecure'
 import useAuth from '../../../../../Utils/useAuth'
 import Swal from 'sweetalert2'
-const CheckoutForm = ({ closeModal, bookingInfo, refetch }) => {
+const CheckoutForm = ({ closeModal, participant, refetch }) => {
     const stripe = useStripe()
     const elements = useElements()
     const axiosSecure = useAxiosSecure()
@@ -19,19 +19,18 @@ const CheckoutForm = ({ closeModal, bookingInfo, refetch }) => {
     const [clientSecret, setClientSecret] = useState()
     const [cardError, setCardError] = useState('')
     const [processing, setProcessing] = useState(false)
-
     useEffect(() => {
         // fetch client secret
-        if (bookingInfo?.price && bookingInfo?.price > 1) {
-            getClientSecret({ price: bookingInfo?.price })
+        
+        if (participant?.campFees && participant?.campFees > 1) {
+            getClientSecret({ campFees: participant?.campFees })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [bookingInfo?.price])
+    }, [participant?.campFees])
 
     //   get clientSecret
-    const getClientSecret = async price => {
-        const { data } = await axiosSecure.post(`/create-payment-intent`, price)
-        console.log('clientSecret from server--->', data)
+    const getClientSecret = async campFees => {
+        const { data } = await axiosSecure.post(`/create-payment-intent`, campFees)
         setClientSecret(data.clientSecret)
     }
 
@@ -66,7 +65,7 @@ const CheckoutForm = ({ closeModal, bookingInfo, refetch }) => {
             setProcessing(false)
             return
         } else {
-            console.log('[PaymentMethod]', paymentMethod)
+        
             setCardError('')
         }
 
@@ -90,25 +89,32 @@ const CheckoutForm = ({ closeModal, bookingInfo, refetch }) => {
         }
 
         if (paymentIntent.status === 'succeeded') {
-            console.log(paymentIntent)
+
             // 1. Create payment info object
             const paymentInfo = {
-                ...bookingInfo,
-                roomId: bookingInfo._id,
+                ...participant,
+                campId: participant._id,
                 transactionId: paymentIntent.id,
                 date: new Date(),
+                confirmation_status: 'Confirmed',
+                payment_status: 'Paid',
+                email: user?.email,
+                name: user?.displayName,
             }
             delete paymentInfo._id
-            console.log(paymentInfo)
+            
             try {
                 // 2. save payment info in booking collection (db)
-                const { data } = await axiosSecure.post('/booking', paymentInfo)
+                const { data } = await axiosSecure.post('/payment', paymentInfo)
                 console.log(data)
 
                 // 3. change room status to booked in db
-                await axiosSecure.patch(`/room/status/${bookingInfo?._id}`, {
-                    status: true,
+                await axiosSecure.put(`/update-participant/${participant._id}`, {
+                    confirmation_status: 'Confirmed', payment_status: 'Paid'
                 })
+
+
+                //4. update camp participant count
 
                 // update ui
                 refetch()
@@ -151,14 +157,14 @@ const CheckoutForm = ({ closeModal, bookingInfo, refetch }) => {
 
                 <div className='flex mt-2 justify-around'>
                     <button
-                        disabled={!stripe || !clientSecret || processing}
+                        disabled={!stripe || !clientSecret }
                         type='submit'
                         className='inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2'
                     >
                         {processing ? (
                             <ImSpinner9 className='animate-spin m-auto' size={24} />
                         ) : (
-                            `Pay ${bookingInfo?.price}`
+                            `Pay ${participant?.campFees}`
                         )}
                     </button>
                     <button
@@ -176,7 +182,7 @@ const CheckoutForm = ({ closeModal, bookingInfo, refetch }) => {
 }
 
 CheckoutForm.propTypes = {
-    bookingInfo: PropTypes.object,
+    participant: PropTypes.object,
     closeModal: PropTypes.func,
     refetch: PropTypes.func,
 }

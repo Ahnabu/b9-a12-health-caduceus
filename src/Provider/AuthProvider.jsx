@@ -105,7 +105,7 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
-            console.log('on auth state changed', currentUser);
+
             // get token form server using email
             setUser(currentUser);
             if (currentUser) {
