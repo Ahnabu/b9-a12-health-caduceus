@@ -23,6 +23,7 @@ import '../../../Shared/style.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { DialogDefault } from './FeedbackModal';
+import PayModal from './PayModal/PayModal';
 
 const RegisteredCamp = () => {
     const { state, setState,user } = useAuth()
@@ -75,74 +76,7 @@ const RegisteredCamp = () => {
 
 
 
-        const handlePay = async id => {
 
-            console.log(id);
-
-            try {
-                await axiosSecure.put(`/update-participant/${id}`, { confirmation_status: 'Confirmed', payment_status : 'Paid'
-    })
-                    .then(data => {
-                        console.log(data.data);
-                        if (data.data.modifiedCount > 0) {
-
-                            Swal.fire({
-                                title: 'Success',
-                                text: 'Successfully Updated to database',
-                                icon: 'success',
-                                confirmButtonText: 'Cool'
-                            })
-                            navigate('/dashboard')
-                            setState(!state)
-                        }
-
-                    })
-            }
-            catch {
-                Swal.fire({
-                    title: 'Error',
-                    text: 'Something went wrong',
-                    icon: 'error',
-                    confirmButtonText: 'Cool'
-                })
-            }
-
-
-        }
-    //     const handleFeedback = async id => {
-
-    //         console.log(id);
-
-    //         try {
-    //             await axiosSecure.put(`/update-participant/${id}`, { confirmation_status: 'Confirmed', payment_status : 'Paid'
-    // })
-    //                 .then(data => {
-    //                     console.log(data.data);
-    //                     if (data.data.modifiedCount > 0) {
-
-    //                         Swal.fire({
-    //                             title: 'Success',
-    //                             text: 'Successfully Updated to database',
-    //                             icon: 'success',
-    //                             confirmButtonText: 'Cool'
-    //                         })
-    //                         navigate('/dashboard')
-    //                         setState(!state)
-    //                     }
-
-    //                 })
-    //         }
-    //         catch {
-    //             Swal.fire({
-    //                 title: 'Error',
-    //                 text: 'Something went wrong',
-    //                 icon: 'error',
-    //                 confirmButtonText: 'Cool'
-    //             })
-    //         }
-
-
-    //     }
     const handleDelete = (id) => {
 
 
@@ -312,10 +246,7 @@ const RegisteredCamp = () => {
                                            
                                             <td className='px-5 py-3'>{participant.campName}</td>
                                             <td className='px-5 py-3'>{participant.campFees}</td>
-                                            <td className='px-5 py-3'>{participant.payment_status === "Unpaid" ? <Button variant='outlined' className={`bg-primary text-secondary border-secondary flex gap-2`}
-
-                                                 
-                                                    onClick={() => { handlePay(participant._id) }}> <MdOutlinePayment className='text-xl -m-1'></MdOutlinePayment> Pay </Button>:"Paid" }</td>
+                                            <td className='px-5 py-3'>{participant.payment_status === "Unpaid" ?<PayModal participant={participant}></PayModal> :"Paid" }</td>
                                             <td className='px-5 py-3'>{participant.confirmation_status}</td>
                                             <td className='px-5 py-3'>
 
