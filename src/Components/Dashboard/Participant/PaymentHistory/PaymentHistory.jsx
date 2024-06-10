@@ -6,35 +6,35 @@ import LoadingSpinner from '../../../Shared/LoadingSpinner'
 import useAuth from '../../../../Utils/useAuth';
 
 import { useEffect, useState } from 'react';
-import {
-    Menu,
-    MenuHandler,
-    MenuList,
-    MenuItem,
-    Button,
-} from "@material-tailwind/react";
-import { GrFormPrevious } from "react-icons/gr";
-import { GrFormNext } from "react-icons/gr";
+// import {
+//     Menu,
+//     MenuHandler,
+//     MenuList,
+//     MenuItem,
+//     Button,
+// } from "@material-tailwind/react";
+// import { GrFormPrevious } from "react-icons/gr";
+// import { GrFormNext } from "react-icons/gr";
 import '../../../Shared/style.css'
-import axios from 'axios';
+// import axios from 'axios';
 
 const PaymentHistory = () => {
     const { state, setState,user } = useAuth()
-    const [count, setCount] = useState(8);
-    const [filter, setFilter] = useState('');
-    const [error, setError] = useState(null);
-    const [currentPage, setCurrentPage] = useState(1);
+    // const [count, setCount] = useState(8);
+    // const [filter, setFilter] = useState('');
+    // const [error, setError] = useState(null);
+    // const [currentPage, setCurrentPage] = useState(1);
     const [participants, setParticipants] = useState([])
-    const [sort, setSort] = useState('')
+    // const [sort, setSort] = useState('')
     const axiosSecure = useAxiosSecure()
 
-    useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/participant-count`)
-            .then(data => {
-                setCount(data.data.count)
-            }).catch(error => console.log(error))
-    }, [currentPage])
-    const numbersOfPage = Math.ceil(count / 8)
+    // useEffect(() => {
+    //     axios.get(`${import.meta.env.VITE_API_URL}/participant-count`)
+    //         .then(data => {
+    //             setCount(data.data.count)
+    //         }).catch(error => console.log(error))
+    // }, [currentPage])
+    // const numbersOfPage = Math.ceil(count / 8)
     //   Fetch participants Data
     const {
         isLoading,
@@ -56,40 +56,40 @@ const PaymentHistory = () => {
 
                 })
         } catch (error) {
-            setError(error.message);
+            // setError(error.message);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [axiosSecure, currentPage, filter, refetch])
+    }, [axiosSecure,refetch])
 
-    const pages = []
-    for (let i = 0; i < numbersOfPage; i++) {
-        pages.push(i)
-    }
+    // const pages = []
+    // for (let i = 0; i < numbersOfPage; i++) {
+    //     pages.push(i)
+    // }
     // const pages = [...Array(numbersOfPage).keys()]
 
 
 
 
-    const handlePrev = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1)
-            refetch()
-        }
-    }
-    const handleNext = () => {
-        if (currentPage < numbersOfPage) {
-            setCurrentPage(currentPage + 1)
-            refetch()
-        }
-    }
+    // const handlePrev = () => {
+    //     if (currentPage > 1) {
+    //         setCurrentPage(currentPage - 1)
+    //         refetch()
+    //     }
+    // }
+    // const handleNext = () => {
+    //     if (currentPage < numbersOfPage) {
+    //         setCurrentPage(currentPage + 1)
+    //         refetch()
+    //     }
+    // }
     const handleFilter = (e) => {
         e.preventDefault();
         const filter = e.target.search.value;
         if (!filter) {
-            setError('Please enter a search term');
+            // setError('Please enter a search term');
             return;
         }
-        setFilter(filter)
+        // setFilter(filter)
         refetch()
     }
 
@@ -123,12 +123,12 @@ const PaymentHistory = () => {
                                         </span>
 
                                     </div>
-                                    {error && <p className='text-red-700 w-full'>Error: {error}</p>}
+                                    {/* {error && <p className='text-red-700 w-full'>Error: {error}</p>} */}
                                 </form>
                             </div>
                             <div>
 
-                                <Menu>
+                                {/* <Menu>
                                     <MenuHandler>
                                         <Button className="bg-primary  text-white w-full placeholder:opacity-100 focus:border-t-primary border-t-blue-gray-200">{sort ? `${sort}` : 'Sort'}</Button>
                                     </MenuHandler>
@@ -142,7 +142,7 @@ const PaymentHistory = () => {
                                             className="bg-primary bg-opacity-55 text-white"
                                             onClick={() => { setSort('participantName'), refetch() }}>participant Name</MenuItem>
                                     </MenuList>
-                                </Menu>
+                                </Menu> */}
                             </div>
                         </div>
 
@@ -212,7 +212,7 @@ const PaymentHistory = () => {
                         </div>
                     </div>
                 </div>
-                <div>
+                {/* <div>
                     <div className="flex justify-center space-x-1 px-2 dark:text-gray-800 pagination">
                         <button title="previous" type="button" className="w-8 h-8 py-0 px-2 border rounded-md shadow-md dark:bg-gray-50 dark:border-gray-100 bg-primary" onClick={handlePrev}>
                             <GrFormPrevious className='text-2xl text-white'></GrFormPrevious>
@@ -229,7 +229,7 @@ const PaymentHistory = () => {
                         </button>
                     </div>
 
-                </div>
+                </div> */}
             </div>
         </>
     )

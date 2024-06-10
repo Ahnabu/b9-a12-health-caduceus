@@ -22,7 +22,7 @@ function LogIn() {
     const { register, handleSubmit } = useForm();
     const handleLogIn = async data=> {
         
-        console.log(data);
+
         
         try {
             const result = await LogInEmail(data?.email,data?.password)

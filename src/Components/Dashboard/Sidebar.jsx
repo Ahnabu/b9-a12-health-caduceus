@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { GrLogout } from 'react-icons/gr'
 import { CgProfile } from "react-icons/cg";
-import { AiOutlineBars } from 'react-icons/ai'
 
 import { Link } from 'react-router-dom'
 import useRole from '../../Utils/useRole'
@@ -46,7 +45,36 @@ const Sidebar = () => {
                     onClick={handleToggle}
                     className='mobile-menu-button p-4 focus:outline-none focus:bg-primary focus:text-white text-primary'
                 >
-                    <AiOutlineBars className='h-5 w-5' />
+                    {!isActive ? (
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            className="h-6 w-6 relative "
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M6 18L18 6M6 6l12 12"
+                            />
+                        </svg>
+                    ) : (
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6 relative"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M4 6h16M4 12h16M4 18h16"
+                            />
+                        </svg>
+                    )}
                 </button>
             </div>
 

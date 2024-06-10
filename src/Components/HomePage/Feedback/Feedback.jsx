@@ -2,11 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../Utils/useAxiosPublic";
 import { Rating } from "@smastrom/react-rating";
 import { FaRegCircleUser } from "react-icons/fa6";
+import useAuth from "../../../Utils/useAuth";
 
 const Feedback = () => {
     const axiosPublic = useAxiosPublic()
 
-
+    const {user} = useAuth()
     const { data: reviews = [] } = useQuery({
         queryKey: ['reviews'],
         queryFn: async () => {
@@ -14,7 +15,6 @@ const Feedback = () => {
             return res.data;
         }
     })
-console.log(reviews);
 
     return (
        
@@ -28,7 +28,7 @@ console.log(reviews);
                   
 
                     <div className="container flex flex-col w-full p-6 mx-auto divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800 text-secondary border-primary">
-                        <div className="flex justify-between p-4">
+                        <div className="md:flex justify-between p-4">
                             <div className="flex space-x-4">
                                 <div>
                                     {
@@ -38,7 +38,7 @@ console.log(reviews);
                                 </div>
                                 <div>
                                     <h4 className="font-bold">{review.participant_name ? `${review.participant_name}`:'Unknown'} </h4>
-                                    <span className="text-xs dark:text-gray-600">2 days ago</span>
+                                    <span className="text-xs dark:text-gray-600">{user?.email} </span>
                                 </div>
                             </div>
                             <div className="flex items-center space-x-2 dark:text-yellow-700">

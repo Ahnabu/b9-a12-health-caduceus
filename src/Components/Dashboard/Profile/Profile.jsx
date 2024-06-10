@@ -24,11 +24,11 @@ const Profile = () => {
 
     const handleOpen = () => setOpen(!open);
     return (
-        <div className='flex justify-center items-center h-screen'>
+        <div className='md:flex justify-center items-center h-screen'>
             <Helmet>
                 <title>Health Caduceus Profile</title>
             </Helmet>
-            <div className='bg-white shadow-lg rounded-2xl w-3/5'>
+            <div className='bg-white shadow-lg rounded-2xl md:w-3/5'>
                 <img
                     alt='profile'
                     src='/bg.jpeg'

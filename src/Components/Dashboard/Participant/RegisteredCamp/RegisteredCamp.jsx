@@ -6,41 +6,42 @@ import LoadingSpinner from '../../../Shared/LoadingSpinner'
 import Swal from 'sweetalert2';
 import useAuth from '../../../../Utils/useAuth';
 
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import {
-    Menu,
-    MenuHandler,
-    MenuList,
-    MenuItem,
+    // Menu,
+    // MenuHandler,
+    // MenuList,
+    // MenuItem,
     Button,
 } from "@material-tailwind/react";
-import { GrFormPrevious } from "react-icons/gr";
-import { GrFormNext } from "react-icons/gr";
+// import { GrFormPrevious } from "react-icons/gr";
+// import { GrFormNext } from "react-icons/gr";
 import { MdCancel } from "react-icons/md";
 
 import { ImBlocked } from "react-icons/im";
 import '../../../Shared/style.css'
-import axios from 'axios';
+// import axios from 'axios';
 import { DialogDefault } from './FeedbackModal';
 import PayModal from './PayModal/PayModal';
+import { useState } from 'react';
 
 const RegisteredCamp = () => {
     const { state, setState,user } = useAuth()
-    const [count, setCount] = useState(8);
+    // const [count, setCount] = useState(8);
     // const [filter, setFilter] = useState('');
-    const [error, setError] = useState(null);
-    const [currentPage, setCurrentPage] = useState(1);
+    // const [error, setError] = useState(null);
+    // const [currentPage, setCurrentPage] = useState(1);
     const [participants, setParticipants] = useState([])
-    const [sort, setSort] = useState('')
+    // const [sort, setSort] = useState('')
     const axiosSecure = useAxiosSecure()
 
-    useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/participant-count`)
-            .then(data => {
-                setCount(data.data.count)
-            }).catch(error => console.log(error))
-    }, [currentPage])
-    const numbersOfPage = Math.ceil(count / 8)
+    // useEffect(() => {
+    //     axios.get(`${import.meta.env.VITE_API_URL}/participant-count`)
+    //         .then(data => {
+    //             setCount(data.data.count)
+    //         }).catch(error => console.log(error))
+    // }, [currentPage])
+    // const numbersOfPage = Math.ceil(count / 8)
     //   Fetch participants Data
     const {
         isLoading,
@@ -55,11 +56,11 @@ const RegisteredCamp = () => {
     })
 
 
-    const pages = []
-    for (let i = 0; i < numbersOfPage; i++) {
-        pages.push(i)
-    }
-    // const pages = [...Array(numbersOfPage).keys()]
+    // const pages = []
+    // for (let i = 0; i < numbersOfPage; i++) {
+    //     pages.push(i)
+    // }
+    // // const pages = [...Array(numbersOfPage).keys()]
 
 
 
@@ -101,28 +102,28 @@ const RegisteredCamp = () => {
 
 
 
-    const handlePrev = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1)
-            refetch()
-        }
-    }
-    const handleNext = () => {
-        if (currentPage < numbersOfPage) {
-            setCurrentPage(currentPage + 1)
-            refetch()
-        }
-    }
-    const handleFilter = (e) => {
-        e.preventDefault();
-        const filter = e.target.search.value;
-        if (!filter) {
-            setError('Please enter a search term');
-            return;
-        }
-        setFilter(filter)
-        refetch()
-    }
+    // const handlePrev = () => {
+    //     if (currentPage > 1) {
+    //         setCurrentPage(currentPage - 1)
+    //         refetch()
+    //     }
+    // }
+    // const handleNext = () => {
+    //     if (currentPage < numbersOfPage) {
+    //         setCurrentPage(currentPage + 1)
+    //         refetch()
+    //     }
+    // }
+    // const handleFilter = (e) => {
+    //     e.preventDefault();
+    //     const filter = e.target.search.value;
+    //     if (!filter) {
+    //         setError('Please enter a search term');
+    //         return;
+    //     }
+    //     // setFilter(filter)
+    //     refetch()
+    // }
 
 
     if (isLoading) return <LoadingSpinner />
@@ -140,7 +141,9 @@ const RegisteredCamp = () => {
                         <p className='text-primary'>Manage all Registered camp here</p>
                         <div className='md:flex gap-4 mx-auto w-full justify-center  text-center'>
                             <div className="text-center md:mr-20  ">
-                                <form className="w-32 space-y-1 dark:text-gray-800 mx-auto" onSubmit={handleFilter}>
+                                <form className="w-32 space-y-1 dark:text-gray-800 mx-auto"
+                                    // onSubmit={handleFilter}
+                                >
                                     <label htmlFor="Search" className="hidden">Search</label>
                                     <div className="relative mx-auto">
                                         <input type="search" name="search" placeholder="Search participant names..." className="w-32 py-2 pl-10 text-sm  border border-primary rounded-md sm:w-auto focus:outline-none text-black bg-gray-100 dark:text-gray-800 focus:dark:bg-gray-50 focus:dark:border-violet-600" />
@@ -154,12 +157,12 @@ const RegisteredCamp = () => {
                                         </span>
 
                                     </div>
-                                    {error && <p className='text-red-700 w-full'>Error: {error}</p>}
+                                    {/* {error && <p className='text-red-700 w-full'>Error: {error}</p>} */}
                                 </form>
                             </div>
                             <div>
 
-                                <Menu>
+                                {/* <Menu>
                                     <MenuHandler>
                                         <Button className="bg-primary  text-white w-full placeholder:opacity-100 focus:border-t-primary border-t-blue-gray-200">{sort ? `${sort}` : 'Sort'}</Button>
                                     </MenuHandler>
@@ -173,7 +176,7 @@ const RegisteredCamp = () => {
                                             className="bg-primary bg-opacity-55 text-white"
                                             onClick={() => { setSort('campName'), refetch() }}>Camp Name</MenuItem>
                                     </MenuList>
-                                </Menu>
+                                </Menu> */}
                             </div>
                         </div>
 
@@ -272,7 +275,7 @@ const RegisteredCamp = () => {
                     </div>
                 </div>
                 <div>
-                    <div className="flex justify-center space-x-1 px-2 dark:text-gray-800 pagination">
+                    {/* <div className="flex justify-center space-x-1 px-2 dark:text-gray-800 pagination">
                         <button title="previous" type="button" className="w-8 h-8 py-0 px-2 border rounded-md shadow-md dark:bg-gray-50 dark:border-gray-100 bg-primary" onClick={handlePrev}>
                             <GrFormPrevious className='text-2xl text-white'></GrFormPrevious>
                         </button>
@@ -286,7 +289,7 @@ const RegisteredCamp = () => {
                         <button title="next" type="button" onClick={handleNext} className="px-2 text-center mx-auto w-8 h-8 py-0 border rounded-md shadow-md dark:bg-gray-50 dark:border-gray-100 bg-primary">
                             <GrFormNext className='text-2xl text-white'></GrFormNext>
                         </button>
-                    </div>
+                    </div> */}
 
                 </div>
             </div>

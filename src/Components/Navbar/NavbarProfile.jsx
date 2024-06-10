@@ -10,15 +10,13 @@ import {
 
 import { FaRegCircleUser } from "react-icons/fa6";
 
-import { Link } from "react-router-dom";
+
 import useAuth from "../../Utils/useAuth";
+import { GrLogout } from "react-icons/gr";
+import { Link } from "react-router-dom";
 const NavbarProfile = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { LogOut, user,loading } = useAuth();
-    const handleLogOut = () => {
-        LogOut();
-      
-    };
     if(!loading)
     return (
         <div className=" relative items-center ">
@@ -32,7 +30,7 @@ const NavbarProfile = () => {
                 </Tooltip>
 
 
-                <Button onClick={handleLogOut} className="ml-4 hidden md:block text-primary bg-white">Log Out</Button>
+                <Button onClick={LogOut} className="ml-4 hidden md:block text-primary bg-white">Log Out</Button>
             </div>
           
 
@@ -50,16 +48,19 @@ const NavbarProfile = () => {
                 </a>
 
                 <hr className="border-gray-200 dark:border-gray-700 " />
-                <Link to={'/my-food'} className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">My added food items</Link>
-                <Link to={'/add'} className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">Add food items</Link>
-                <Link to={'/my-ordered'} className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">My purchased food items</Link>
+                <Link to={'/dashboard'} className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">Dashboard</Link>
                 <hr className="border-gray-200 dark:border-gray-700 " />
 
                 <a href="#" className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
                     Help
                 </a>
-                <button onClick={handleLogOut} className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                    Sign Out
+                <button
+                    onClick={LogOut}
+                    className='flex w-full items-center px-4 py-2 mt-5 bg-primary text-white hover:bg-white  hover:text-primary transition-colors duration-300 transform'
+                >
+                    <GrLogout className='w-5 h-5' />
+
+                    <span className='mx-4 font-medium'>Logout</span>
                 </button>
             </div>}
         </div>

@@ -65,7 +65,7 @@ const CheckoutForm = ({ closeModal, participant, refetch }) => {
             setProcessing(false)
             return
         } else {
-        
+            console.log('[PaymentMethod]', paymentMethod)
             setCardError('')
         }
 
@@ -89,7 +89,7 @@ const CheckoutForm = ({ closeModal, participant, refetch }) => {
         }
 
         if (paymentIntent.status === 'succeeded') {
-
+            console.log(paymentIntent)
             // 1. Create payment info object
             const paymentInfo = {
                 ...participant,
@@ -102,7 +102,7 @@ const CheckoutForm = ({ closeModal, participant, refetch }) => {
                 name: user?.displayName,
             }
             delete paymentInfo._id
-            
+            console.log(paymentInfo)
             try {
                 // 2. save payment info in booking collection (db)
                 const { data } = await axiosSecure.post('/payment', paymentInfo)
