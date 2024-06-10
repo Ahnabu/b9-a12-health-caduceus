@@ -29,10 +29,10 @@ const Feedback = () => {
 
                     <div className="container flex flex-col w-full p-6 mx-auto divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800 text-secondary border-primary">
                         <div className="md:flex justify-between p-4">
-                            <div className="flex space-x-4">
+                            <div className="flex space-x-4 mx-auto">
                                 <div>
                                     {
-                                        review.photoUrl ? <img src={review.photoUrl} alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" /> : <FaRegCircleUser className="w-12 h-12 bg-primary"/>
+                                        review.photoUrl ? <img src={review.photoUrl} alt="" className="object-cover w-12 h-12 rounded-full mx-auto dark:bg-gray-500" /> : <FaRegCircleUser className="w-12 h-12 bg-primary"/>
                                     }
                                   
                                 </div>
@@ -41,9 +41,9 @@ const Feedback = () => {
                                     <span className="text-xs dark:text-gray-600">{user?.email} </span>
                                 </div>
                             </div>
-                            <div className="flex items-center space-x-2 dark:text-yellow-700">
+                            <div className="flex items-center space-x-2 dark:text-yellow-700 mt-4">
                              
-                                <Rating style={{ maxWidth: 250 }} value={review.rating} />
+                                <Rating style={{ maxWidth: 200 }} value={review.rating} />
                             </div>
                         </div>
                         <div className="p-4 space-y-2 text-sm dark:text-gray-600">

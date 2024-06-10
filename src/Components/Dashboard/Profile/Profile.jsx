@@ -39,6 +39,7 @@ const Profile = () => {
                         <img
                             alt='profile'
                             src={user?.photoURL}
+                            referrerPolicy='no-referrer'
                             className='mx-auto object-cover rounded-full h-24 w-24  border-2 border-white '
                         />
                     </a>

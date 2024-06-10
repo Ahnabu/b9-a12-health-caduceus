@@ -71,7 +71,7 @@ export function StickyNavbar() {
     );
 
     return (
-        <div className=" w-full max-w-[1280px] mx-auto">
+        <div className=" min-w-80 w-full max-w-[1280px] mx-auto">
             <Navbar className="fixed bg-transparent z-10 h-max max-w-[1280px] mx-auto rounded-none px-2 md:px-4 py-2 lg:px-8 lg:py-4 bg-opacity-40 bg-primary">
                 <div className="flex items-center justify-between text-primary">
                     <Typography
