@@ -1,5 +1,12 @@
 ## Health Caduceus 
 
+
+**Organizers username** :Abu Horaira.
+**Organizers email** :juriza@mailinator.com
+
+**password**: Pa$$w0rd!
+ 
+**live site URL**:b9-a12-health-caduceus.web.app
 ## Overview
 This web application simplifies health camp management, allowing organizers and users to efficiently handle bookings, payments, and participant tracking. Below are the key features:
 

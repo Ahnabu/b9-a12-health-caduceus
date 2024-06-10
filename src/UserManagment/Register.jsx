@@ -186,7 +186,7 @@ function Register() {
                             >
 
                             </Input>
-                            <span onClick={() => { setSee(!see) }} className={' relative top-3 md:-top-7 right-6 md:-right-[350px]'}>
+                            <span onClick={() => { setSee(!see) }} className={' relative top-3 md:-top-9 right-6  text-primary text-xl md:-right-[350px]'}>
                                 {see ? <FaEyeSlash /> : <FaEye />}
                             </span>
                         </div>

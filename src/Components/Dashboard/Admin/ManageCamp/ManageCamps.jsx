@@ -35,7 +35,7 @@ const ManageCamps = () => {
                 setCount(data.data.count)
             }).catch(error => console.log(error))
     }, [currentPage])
-    const numbersOfPage = Math.ceil(count / 8)
+    const numbersOfPage = Math.ceil(count /10)
     //   Fetch camps Data
     const {
         isLoading,

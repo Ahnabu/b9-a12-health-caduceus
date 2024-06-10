@@ -74,7 +74,7 @@ function LogIn() {
                             name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 text-black dark:text-gray-800 focus:dark:border-violet-600" />
                         <div className="flex justify-end text-xs dark:text-gray-600">
 
-                            <span onClick={() => { setSee(!see) }} className={' relative -top-7  right-3 md:right-6'}>
+                            <span onClick={() => { setSee(!see) }} className={' relative -top-9  right-3 md:right-6 text-primary text-xl'}>
                                 {see ? <FaEyeSlash /> : <FaEye />}
                             </span>
                         </div>
