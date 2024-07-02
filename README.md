@@ -5,8 +5,9 @@
 **Organizers email** :juriza@mailinator.com
 
 **password**: Pa$$w0rd!
- **server side repo**:https://github.com/Ahnabu/b9-a12-health-caduceus-server
 **live site URL**:b9-a12-health-caduceus.web.app
+**server side repo**:https://github.com/Ahnabu/b9-a12-health-caduceus-server
+
 ## Overview
 This web application simplifies health camp management, allowing organizers and users to efficiently handle bookings, payments, and participant tracking. Below are the key features:
 
