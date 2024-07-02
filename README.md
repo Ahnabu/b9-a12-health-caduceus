@@ -21,4 +21,8 @@ This web application simplifies health camp management, allowing organizers and 
 9. **Real-Time Transparency**: Real-time information for all stakeholders.
 10. **Unified Interface**: A smart, unified interface simplifies camp management.
 
-
+** If you want to run on your local machine, then
+1. clone this repo.
+2. install the dependency by npm i
+3. set firebase config
+4. run this with npm run dev
